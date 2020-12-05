@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Will\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Will\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Will\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_dialogue-package.-1680215423.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Will\Documents\unity-projects\dialogue-package" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="_Project" t="Include">
+          <e p="Dialogue" t="Include">
+            <e p="Dialogue.asmdef" t="Include" />
+            <e p="DialogueAssetLoader.cs" t="Include" />
+            <e p="DialogueEntry.cs" t="Include" />
+            <e p="DialogueEntryWrapper.cs" t="Include" />
+          </e>
+          <e p="Tests" t="Include">
+            <e p="EditMode" t="Include">
+              <e p="DialogueAssetLoaderTests.cs" t="Include" />
+              <e p="EditMode.asmdef" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="dialogue-package.sln" t="IncludeFlat" />
+      <e p="Dialogue.csproj" t="IncludeRecursive" />
+      <e p="EditMode.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
