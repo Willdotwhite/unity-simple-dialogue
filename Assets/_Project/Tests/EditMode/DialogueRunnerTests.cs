@@ -1,4 +1,6 @@
-﻿using _Project.Dialogue;
+﻿using System;
+using System.Collections.Generic;
+using _Project.Dialogue;
 using NUnit.Framework;
 
 namespace _Project.Tests.EditMode
@@ -12,12 +14,12 @@ namespace _Project.Tests.EditMode
             DialogueRunner runner = new DialogueRunner(loader.Records);
 
             runner.SetCurrentRecord("multi-file-test-id-1");
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 DialogueRecord record = runner.CurrentRecord;
                 DialogueLine line = record.CurrentDialogueLine;
 
-                Assert.AreEqual(line.dialogue, "Test dialogue line " + i);
+                Assert.AreEqual(line.dialogue, $"Test dialogue line {i}");
                 runner.StepToNextDialogueLine();
             }
         }
@@ -54,6 +56,38 @@ namespace _Project.Tests.EditMode
             Assert.AreEqual(secondLine.speaker, "test-user-2");
             Assert.AreEqual(secondLine.dialogue, "This is another test");
             Assert.IsNull(secondLine.next);
+        }
+
+        [Test]
+        public void DialogueThrowsErrorOnInvalidRecordSet()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("LoopingConversationTest/");
+            DialogueRunner runner = new DialogueRunner(loader.Records);
+
+            Assert.Throws<KeyNotFoundException>(() => runner.SetCurrentRecord("file-id-that-does-not-exist"));
+        }
+
+        [Test]
+        public void LoopingDialogueResetsInternals()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("LoopingConversationTest/");
+            DialogueRunner runner = new DialogueRunner(loader.Records);
+
+            runner.SetCurrentRecord("looping-file-test-id-1");
+            for (int i = 1; i <= 3; i++)
+            {
+                DialogueRecord record = runner.CurrentRecord;
+                Assert.IsFalse(record.IsAtEndOfRecord);
+
+                for (int j = 1; j <= 2; j++)
+                {
+
+                    DialogueLine line = record.CurrentDialogueLine;
+
+                    Assert.AreEqual(line.dialogue, $"Test dialogue line {i} - {j}");
+                    runner.StepToNextDialogueLine();
+                }
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ namespace _Project.Dialogue
         {
             Assert.IsNotNull(Records[recordId]);
             CurrentRecord = Records[recordId];
+            CurrentRecord.Reset();
         }
 
         /// <summary>

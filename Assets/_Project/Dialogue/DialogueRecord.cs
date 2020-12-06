@@ -39,7 +39,10 @@ namespace _Project.Dialogue
         public DialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
 
         /// <summary>
-        /// Have we reached the end of this record?
+        /// Is the current line the last dialogueLine of this record?
+        /// <para>
+        /// Note: This will be true if a record only contains a single dialogueLine!
+        /// </para>
         /// </summary>
         public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
 
@@ -49,6 +52,17 @@ namespace _Project.Dialogue
         public void StepToNextDialogueLine()
         {
             currentLineId++;
+        }
+
+        /// <summary>
+        /// Reset any previous state on this Record
+        /// <para>
+        /// This allows us to walk the same Record multiple times
+        /// </para>
+        /// </summary>
+        public void Reset()
+        {
+            currentLineId = 0;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using _Project.Dialogue;
+﻿using System.IO;
+using _Project.Dialogue;
 using NUnit.Framework;
 
 namespace _Project.Tests.EditMode
@@ -6,7 +7,7 @@ namespace _Project.Tests.EditMode
     public class DialogueAssetLoaderTests
     {
         [Test]
-        public void DialogueSimplePasses()
+        public void DialogueAssetSimplePasses()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("SingleFileTest/");
             Assert.NotZero(loader.Records.Count);
@@ -22,10 +23,16 @@ namespace _Project.Tests.EditMode
         }
 
         [Test]
-        public void DialogueLoadsAllRelatedFiles()
+        public void DialogueAssetLoadsAllRelatedFiles()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
             Assert.AreEqual(loader.Records.Count, 2);
+        }
+
+        [Test]
+        public void DialogueAssetThrowsErrorIfFilesNotFound()
+        {
+            Assert.Throws<FileLoadException>(() => new DialogueAssetLoader("InvalidOrEmptyFilePath/"));
         }
     }
 }

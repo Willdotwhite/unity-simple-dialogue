@@ -1,0 +1,14 @@
+﻿{
+  "id": "looping-file-test-id-3",
+  "dialogueLines": [
+    {
+      "speaker": "test-user-3",
+      "dialogue": "Test dialogue line 3 - 1"
+    },
+    {
+      "speaker": "test-user-3",
+      "dialogue": "Test dialogue line 3 - 2",
+      "next": "looping-file-test-id-1"
+    }
+  ]
+}
