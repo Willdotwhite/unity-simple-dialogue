@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b14dd02f-b0eb-4f23-95a3-de895227380e" name="Default Changelist" comment="" />
+    <list default="true" id="b14dd02f-b0eb-4f23-95a3-de895227380e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/Dialogue.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/Dialogue.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/Dialogue.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/Dialogue.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ClusterInputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ClusterInputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueEntry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Resources/test.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueEntryWrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/59819BE1-42C3-4115-ADE6-88F6962021F1/ee/69d7b894/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.16/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -23,14 +89,25 @@
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/Tests/EditModeTests/DialogueAssetLoaderTests.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/Tests/EditMode/EditMode.asmdef" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/Tests/EditMode/DialogueAssetLoaderTests.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Resources/test.json" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueEntryWrapper.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueFile.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Resources/test.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Resources/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Resources/test-file-2.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1lFUVUvWCdxhx3RfRhTFtSaeMr8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +118,12 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -49,10 +132,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13152">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="13152" />
       <method v="2" />
     </configuration>
   </component>
@@ -66,7 +149,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607192357500</updated>
-      <workItem from="1607192362661" duration="1370000" />
+      <workItem from="1607192362661" duration="4478000" />
     </task>
     <servers />
   </component>
@@ -75,4 +158,81 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1607195190159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190159" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1607195190161">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190161" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1607195190160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607195190160" />
+  </component>
 </project>

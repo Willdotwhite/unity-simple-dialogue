@@ -5,15 +5,22 @@ namespace _Project.Dialogue
 {
     public class DialogueAssetLoader
     {
-        public List<DialogueEntry> Entries { get; }
+        public Dictionary<string, DialogueRecord> Records { get; } = new Dictionary<string, DialogueRecord>();
 
         public DialogueAssetLoader(string filepath)
         {
-            TextAsset file = Resources.Load<TextAsset>(filepath.Replace(".json", ""));
-            DialogueEntryWrapper wrapper = JsonUtility.FromJson<DialogueEntryWrapper>(file.ToString());
+            TextAsset[] textAssets = Resources.LoadAll<TextAsset>(filepath);
 
-            Entries = wrapper.entries;
+            foreach (TextAsset asset in textAssets)
+            {
+                DialogueRecord record = JsonUtility.FromJson<DialogueRecord>(asset.ToString());
+                Records.Add(record.id, record);
+            }
         }
+
+        // TODO: Set conversation start
+
+        // TODO: Step through conversation
 
     }
 }

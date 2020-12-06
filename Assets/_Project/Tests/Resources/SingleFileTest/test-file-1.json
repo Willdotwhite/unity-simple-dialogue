@@ -1,0 +1,11 @@
+﻿{
+  "id": "single-file-test-id-1",
+  "entries": [
+    {
+      "speaker": "test-user",
+      "dialogue": "This is a test",
+      "meta": "end",
+      "next": "0"
+    }
+  ]
+}

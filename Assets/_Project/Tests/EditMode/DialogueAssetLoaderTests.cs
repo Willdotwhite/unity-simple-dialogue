@@ -8,15 +8,25 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueSimplePasses()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("test.json");
-            Assert.NotZero(loader.Entries.Count);
+            DialogueAssetLoader loader = new DialogueAssetLoader("SingleFileTest/");
+            Assert.NotZero(loader.Records.Count);
 
-            DialogueEntry entry = loader.Entries[0];
-            Assert.AreEqual(entry.speaker, "test-user");
-            Assert.AreEqual(entry.dialogue, "This is a test");
-            Assert.AreEqual(entry.meta, "end");
-            Assert.AreEqual(entry.next, "0");
+            DialogueRecord record = loader.Records["single-file-test-id-1"];
+            Assert.AreEqual(record.id, "single-file-test-id-1");
+
+            DialogueLine line = record.entries[0];
+
+            Assert.AreEqual(line.speaker, "test-user");
+            Assert.AreEqual(line.dialogue, "This is a test");
+            Assert.AreEqual(line.meta, "end");
+            Assert.AreEqual(line.next, "0");
         }
 
+        [Test]
+        public void DialogueLoadsAndTraversesAllRelatedFiles()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
+            Assert.NotZero(loader.Records.Count);
+        }
     }
 }

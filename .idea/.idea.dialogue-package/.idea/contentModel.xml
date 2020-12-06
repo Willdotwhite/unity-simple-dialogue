@@ -10,8 +10,8 @@
           <e p="Dialogue" t="Include">
             <e p="Dialogue.asmdef" t="Include" />
             <e p="DialogueAssetLoader.cs" t="Include" />
-            <e p="DialogueEntry.cs" t="Include" />
-            <e p="DialogueEntryWrapper.cs" t="Include" />
+            <e p="DialogueLine.cs" t="Include" />
+            <e p="DialogueRecord.cs" t="Include" />
           </e>
           <e p="Tests" t="Include">
             <e p="EditMode" t="Include">
