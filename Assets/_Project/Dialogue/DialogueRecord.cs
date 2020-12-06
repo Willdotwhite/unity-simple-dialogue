@@ -2,22 +2,53 @@
 
 namespace _Project.Dialogue
 {
+    /// <summary>
+    /// A DialogueRecord is a collection of dialogue lines grouped together,
+    /// along with the logical rules for how this chunk of a conversation/narrative can flow.
+    /// <para>
+    /// It is expected that a single conversation will be broken into multiple records.
+    /// This allows for easier management of branching conversations and game commands.
+    /// </para>
+    /// </summary>
     [System.Serializable]
     public class DialogueRecord
     {
+        /// <summary>
+        /// Unique ID of this record
+        /// <para>
+        /// Can be anything that uniquely represents a Record,
+        /// but it is recommended to pick something human-readable
+        /// </para>
+        /// </summary>
         public string id;
 
-        public List<DialogueLine> entries;
+        /// <summary>
+        /// All dialogue lines for the current record
+        /// </summary>
+        public List<DialogueLine> dialogueLines;
 
-        private int currentEntryId = 0;
+        /// <summary>
+        /// Array index of the current line of dialogue
+        /// TODO: We're going to need to reset this when we build loops
+        /// </summary>
+        private int currentLineId = 0;
 
-        public DialogueLine CurrentDialogueLine => entries[currentEntryId];
+        /// <summary>
+        /// Current DialogueLine
+        /// </summary>
+        public DialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
 
-        public bool IsAtEndOfRecord => currentEntryId == entries.Count - 1;
+        /// <summary>
+        /// Have we reached the end of this record?
+        /// </summary>
+        public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
 
+        /// <summary>
+        /// Step to next DialogueLine in this record
+        /// </summary>
         public void StepToNextDialogueLine()
         {
-            currentEntryId++;
+            currentLineId++;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿{
   "id": "multi-file-test-id-1",
-  "entries": [
+  "dialogueLines": [
     {
       "speaker": "test-user",
       "dialogue": "This is a test",

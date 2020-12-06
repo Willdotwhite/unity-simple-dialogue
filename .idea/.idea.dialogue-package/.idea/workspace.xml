@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b14dd02f-b0eb-4f23-95a3-de895227380e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" afterDir="false" />
@@ -25,10 +26,14 @@
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" afterDir="false" />
@@ -71,16 +76,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/59819BE1-42C3-4115-ADE6-88F6962021F1/ee/69d7b894/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.16/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -99,14 +105,16 @@
         <option value="$PROJECT_DIR$/Assets/_Project/Resources/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Resources/test-file-2.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueRecordTest.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" />
       </list>
     </option>
   </component>
@@ -156,7 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607192357500</updated>
-      <workItem from="1607192362661" duration="7090000" />
+      <workItem from="1607192362661" duration="8331000" />
     </task>
     <servers />
   </component>

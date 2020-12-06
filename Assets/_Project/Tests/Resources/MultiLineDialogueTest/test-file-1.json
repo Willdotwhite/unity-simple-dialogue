@@ -1,0 +1,25 @@
+﻿{
+  "id": "multi-file-test-id-1",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "Test dialogue line 1"
+    },
+    {
+      "speaker": "test-user-2",
+      "dialogue": "Test dialogue line 2"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Test dialogue line 3"
+    },
+    {
+      "speaker": "test-user-2",
+      "dialogue": "Test dialogue line 4"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Test dialogue line 5"
+    }
+  ]
+}

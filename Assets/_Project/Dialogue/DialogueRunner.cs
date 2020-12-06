@@ -6,7 +6,7 @@ namespace _Project.Dialogue
 {
     public class DialogueRunner
     {
-        public Dictionary<string, DialogueRecord> Records { get; }
+        private Dictionary<string, DialogueRecord> Records { get; }
 
         public DialogueRecord CurrentRecord { get; private set; }
 
@@ -15,8 +15,6 @@ namespace _Project.Dialogue
             Records = records;
         }
 
-
-        // TODO: Set conversation start
         /// <summary>
         /// Set the current record for the DialogueRunner to read from
         /// <para>
@@ -24,14 +22,13 @@ namespace _Project.Dialogue
         /// </para>
         /// </summary>
         /// <param name="recordId"></param>
+        // TODO: Should this be called automatically if you only load a single file?
         public void SetCurrentRecord(string recordId)
         {
             Assert.IsNotNull(Records[recordId]);
-
             CurrentRecord = Records[recordId];
         }
 
-        // TODO: Step through conversation
         /// <summary>
         /// Step through to "next"
         /// </summary>
@@ -42,7 +39,12 @@ namespace _Project.Dialogue
             {
                 DialogueLine currentLine = CurrentRecord.CurrentDialogueLine;
                 string nextRecordId = currentLine.next;
-                Assert.IsNotNull(nextRecordId);
+                if (nextRecordId == null)
+                {
+                    // Best handling practice here?
+                    Debug.LogWarning("DialogueRunner has hit end of dialogue");
+                    return;
+                }
 
                 SetCurrentRecord(nextRecordId);
                 return;
