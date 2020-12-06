@@ -18,9 +18,5 @@ namespace _Project.Dialogue
             }
         }
 
-        // TODO: Set conversation start
-
-        // TODO: Step through conversation
-
     }
 }

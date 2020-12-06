@@ -18,15 +18,14 @@ namespace _Project.Tests.EditMode
 
             Assert.AreEqual(line.speaker, "test-user");
             Assert.AreEqual(line.dialogue, "This is a test");
-            Assert.AreEqual(line.meta, "end");
             Assert.AreEqual(line.next, "0");
         }
 
         [Test]
-        public void DialogueLoadsAndTraversesAllRelatedFiles()
+        public void DialogueLoadsAllRelatedFiles()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
-            Assert.NotZero(loader.Records.Count);
+            Assert.AreEqual(loader.Records.Count, 2);
         }
     }
 }

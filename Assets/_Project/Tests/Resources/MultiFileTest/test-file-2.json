@@ -3,9 +3,7 @@
   "entries": [
     {
       "speaker": "test-user-2",
-      "dialogue": "This is another test",
-      "meta": "end",
-      "next": "1"
+      "dialogue": "This is another test"
     }
   ]
 }

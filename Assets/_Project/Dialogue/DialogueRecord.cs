@@ -8,5 +8,16 @@ namespace _Project.Dialogue
         public string id;
 
         public List<DialogueLine> entries;
+
+        private int currentEntryId = 0;
+
+        public DialogueLine CurrentDialogueLine => entries[currentEntryId];
+
+        public bool IsAtEndOfRecord => currentEntryId == entries.Count - 1;
+
+        public void StepToNextDialogueLine()
+        {
+            currentEntryId++;
+        }
     }
 }

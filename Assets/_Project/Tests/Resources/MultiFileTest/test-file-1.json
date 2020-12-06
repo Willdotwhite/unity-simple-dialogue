@@ -4,8 +4,7 @@
     {
       "speaker": "test-user",
       "dialogue": "This is a test",
-      "meta": "end",
-      "next": "0"
+      "next": "multi-file-test-id-2"
     }
   ]
 }
