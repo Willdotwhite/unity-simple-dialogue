@@ -8,11 +8,24 @@ namespace _Project.Dialogue
     {
         private Dictionary<string, DialogueRecord> Records { get; }
 
+        private DialogueParser _parser;
+
         public DialogueRecord CurrentRecord { get; private set; }
 
         public DialogueRunner(Dictionary<string, DialogueRecord> records)
         {
             Records = records;
+        }
+
+        public DialogueRunner(Dictionary<string, DialogueRecord> records, DialogueParser parser)
+        {
+            Records = records;
+            _parser = parser;
+
+            if (_parser.Type == DialogueParserType.OnLoad)
+            {
+                _parser.Parse(Records);
+            }
         }
 
         /// <summary>

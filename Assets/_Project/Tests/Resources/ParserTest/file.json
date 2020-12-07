@@ -1,0 +1,17 @@
+﻿{
+  "id": "parser",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "Hello _PLAYER_"
+    },
+    {
+      "speaker": "test-user-2",
+      "dialogue": "Hello _PARTY_MEMBER_"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Test dialogue line 3"
+    }
+  ]
+}

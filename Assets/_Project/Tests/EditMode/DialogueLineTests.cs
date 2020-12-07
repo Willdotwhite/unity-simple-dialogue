@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using _Project.Dialogue;
+﻿using _Project.Dialogue;
 using NUnit.Framework;
 
 namespace _Project.Tests.EditMode
