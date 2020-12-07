@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b14dd02f-b0eb-4f23-95a3-de895227380e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" afterDir="false" />
@@ -41,6 +37,13 @@
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/EditMode.asmdef.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json.meta" afterDir="false" />
@@ -83,22 +86,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/59819BE1-42C3-4115-ADE6-88F6962021F1/ee/69d7b894/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.16/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/23/152fe6d1/Assert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -120,8 +123,6 @@
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" />
@@ -129,6 +130,9 @@
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
       </list>
     </option>
   </component>
@@ -161,10 +165,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13152">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13152" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -178,7 +182,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607192357500</updated>
-      <workItem from="1607192362661" duration="10042000" />
+      <workItem from="1607192362661" duration="11782000" />
+      <workItem from="1607359726447" duration="120000" />
     </task>
     <servers />
   </component>
@@ -192,7 +197,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -202,69 +209,69 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1607260241566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241566" />
+    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1607260241566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241566" />
+    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1607260241566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241566" />
+    <state width="1877" height="221" key="GridCell.Tab.1.bottom" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.1.center" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.1.center" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.1.left" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.1.left" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.1.right" timestamp="1607256449121">
+    <state width="1877" height="221" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.1.right" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449121" />
-    <state width="1877" height="221" key="GridCell.Tab.2.bottom" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.2.bottom" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.2.center" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.2.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.2.center" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.2.left" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.2.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.2.left" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.2.right" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.2.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.2.right" timestamp="1607260241567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.3.bottom" timestamp="1607256449123">
+    <state width="1877" height="221" key="GridCell.Tab.2.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241567" />
+    <state width="1877" height="221" key="GridCell.Tab.3.bottom" timestamp="1607260241568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449123" />
-    <state width="1877" height="221" key="GridCell.Tab.3.center" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.3.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241568" />
+    <state width="1877" height="221" key="GridCell.Tab.3.center" timestamp="1607260241568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.3.left" timestamp="1607256449122">
+    <state width="1877" height="221" key="GridCell.Tab.3.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241568" />
+    <state width="1877" height="221" key="GridCell.Tab.3.left" timestamp="1607260241568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449122" />
-    <state width="1877" height="221" key="GridCell.Tab.3.right" timestamp="1607256449123">
+    <state width="1877" height="221" key="GridCell.Tab.3.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241568" />
+    <state width="1877" height="221" key="GridCell.Tab.3.right" timestamp="1607260241568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607256449123" />
+    <state width="1877" height="221" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241568" />
   </component>
 </project>

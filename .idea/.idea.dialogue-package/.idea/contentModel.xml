@@ -11,6 +11,7 @@
             <e p="Dialogue.asmdef" t="Include" />
             <e p="DialogueAssetLoader.cs" t="Include" />
             <e p="DialogueLine.cs" t="Include" />
+            <e p="DialogueParser.cs" t="Include" />
             <e p="DialogueRecord.cs" t="Include" />
             <e p="DialogueRunner.cs" t="Include" />
           </e>
