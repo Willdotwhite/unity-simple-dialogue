@@ -11,13 +11,13 @@
             <e p="Dialogue.asmdef" t="Include" />
             <e p="DialogueAssetLoader.cs" t="Include" />
             <e p="DialogueLine.cs" t="Include" />
-            <e p="DialogueParser.cs" t="Include" />
             <e p="DialogueRecord.cs" t="Include" />
             <e p="DialogueRunner.cs" t="Include" />
           </e>
           <e p="Tests" t="Include">
             <e p="EditMode" t="Include">
               <e p="DialogueAssetLoaderTests.cs" t="Include" />
+              <e p="DialogueLineTests.cs" t="Include" />
               <e p="DialogueRunnerTests.cs" t="Include" />
               <e p="EditMode.asmdef" t="Include" />
             </e>

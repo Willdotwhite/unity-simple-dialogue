@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b14dd02f-b0eb-4f23-95a3-de895227380e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueLineTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueLineTests.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/options.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/options.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/simple.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/simple.json.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dialogue-package/.idea/indexLayout.xml" afterDir="false" />
@@ -75,6 +79,7 @@
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,16 +93,18 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/options.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueLineTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/59819BE1-42C3-4115-ADE6-88F6962021F1/ee/69d7b894/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/23/152fe6d1/Assert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/simple.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,17 +129,20 @@
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiFileTest/test-file-2.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/MultiLineDialogueTest/test-file-1.json" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-1.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-2.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/LoopingConversationTest/test-file-3.json" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRecord.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueRunnerTests.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueAssetLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueParser.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueRunner.cs" />
         <option value="$PROJECT_DIR$/Assets/_Project/Dialogue/DialogueLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/SingleFileTest/test-file-1.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/simple.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/Resources/DialogueLineFormatTest/options.json" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueAssetLoaderTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Project/Tests/EditMode/DialogueLineTests.cs" />
       </list>
     </option>
   </component>
@@ -183,7 +193,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607192357500</updated>
       <workItem from="1607192362661" duration="11782000" />
-      <workItem from="1607359726447" duration="120000" />
+      <workItem from="1607359726447" duration="1153000" />
     </task>
     <servers />
   </component>
@@ -273,5 +283,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="221" key="GridCell.Tab.3.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607260241568" />
+    <state x="638" y="252" width="644" height="536" key="find.popup" timestamp="1607360792140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="638" y="252" width="644" height="536" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607360792140" />
   </component>
 </project>

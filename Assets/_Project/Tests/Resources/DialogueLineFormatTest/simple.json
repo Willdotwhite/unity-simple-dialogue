@@ -1,0 +1,9 @@
+﻿{
+  "id": "simple",
+  "dialogueLines": [
+    {
+      "speaker": "simple-test-user",
+      "dialogue": "This is a simple test"
+    }
+  ]
+}

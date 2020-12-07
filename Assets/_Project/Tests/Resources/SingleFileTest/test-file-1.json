@@ -3,8 +3,7 @@
   "dialogueLines": [
     {
       "speaker": "test-user",
-      "dialogue": "This is a test",
-      "next": "0"
+      "dialogue": "This is a test"
     }
   ]
 }

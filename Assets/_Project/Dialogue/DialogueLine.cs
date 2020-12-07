@@ -1,4 +1,6 @@
-﻿namespace _Project.Dialogue
+﻿using System.Collections.Generic;
+
+namespace _Project.Dialogue
 {
     /// <summary>
     /// A DialogueLine is a single entry in a DialogueRecord (which is a subset of a larger conversation/narration)
@@ -10,5 +12,6 @@
         public string speaker;
         public string dialogue;
         public string next;
+        public List<DialogueLine> options;
     }
 }

@@ -19,7 +19,6 @@ namespace _Project.Tests.EditMode
 
             Assert.AreEqual(line.speaker, "test-user");
             Assert.AreEqual(line.dialogue, "This is a test");
-            Assert.AreEqual(line.next, "0");
         }
 
         [Test]
