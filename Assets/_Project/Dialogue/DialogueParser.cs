@@ -22,7 +22,7 @@ namespace _Project.Dialogue
                 {
                     foreach (KeyValuePair<string,string> keyValuePair in replacements)
                     {
-                        line.dialogue = line.dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
+                        line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
                     }
                 }
             }

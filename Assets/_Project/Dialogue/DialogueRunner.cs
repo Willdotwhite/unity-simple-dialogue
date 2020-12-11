@@ -52,7 +52,7 @@ namespace _Project.Dialogue
             if (CurrentRecord.IsAtEndOfRecord)
             {
                 DialogueLine currentLine = CurrentRecord.CurrentDialogueLine;
-                string nextRecordId = currentLine.next;
+                string nextRecordId = currentLine.Next;
                 if (nextRecordId == null)
                 {
                     // Best handling practice here?

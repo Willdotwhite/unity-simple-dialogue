@@ -19,7 +19,7 @@ namespace _Project.Tests.EditMode
                 DialogueRecord record = runner.CurrentRecord;
                 DialogueLine line = record.CurrentDialogueLine;
 
-                Assert.AreEqual(line.dialogue, $"Test dialogue line {i}");
+                Assert.AreEqual(line.Dialogue, $"Test dialogue line {i}");
                 runner.StepToNextDialogueLine();
             }
         }
@@ -40,9 +40,9 @@ namespace _Project.Tests.EditMode
 
             DialogueLine firstLine = firstRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(firstLine.speaker, "test-user");
-            Assert.AreEqual(firstLine.dialogue, "This is a test");
-            Assert.AreEqual(firstLine.next, "multi-file-test-id-2");
+            Assert.AreEqual(firstLine.Speaker, "test-user");
+            Assert.AreEqual(firstLine.Dialogue, "This is a test");
+            Assert.AreEqual(firstLine.Next, "multi-file-test-id-2");
 
             /* Call to step forwards and check "next" lookup has worked as expected */
             runner.StepToNextDialogueLine();
@@ -53,9 +53,9 @@ namespace _Project.Tests.EditMode
 
             DialogueLine secondLine = secondRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(secondLine.speaker, "test-user-2");
-            Assert.AreEqual(secondLine.dialogue, "This is another test");
-            Assert.IsNull(secondLine.next);
+            Assert.AreEqual(secondLine.Speaker, "test-user-2");
+            Assert.AreEqual(secondLine.Dialogue, "This is another test");
+            Assert.IsNull(secondLine.Next);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace _Project.Tests.EditMode
 
                     DialogueLine line = record.CurrentDialogueLine;
 
-                    Assert.AreEqual(line.dialogue, $"Test dialogue line {i} - {j}");
+                    Assert.AreEqual(line.Dialogue, $"Test dialogue line {i} - {j}");
                     runner.StepToNextDialogueLine();
                 }
             }
