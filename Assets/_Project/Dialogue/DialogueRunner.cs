@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 namespace _Project.Dialogue
 {
@@ -8,24 +10,27 @@ namespace _Project.Dialogue
     {
         private Dictionary<string, DialogueRecord> Records { get; }
 
-        private DialogueParser _parser;
-
         public DialogueRecord CurrentRecord { get; private set; }
 
-        public DialogueRunner(Dictionary<string, DialogueRecord> records)
-        {
-            Records = records;
-        }
+        private readonly DialogueParser _parser;
 
-        public DialogueRunner(Dictionary<string, DialogueRecord> records, DialogueParser parser)
+        private readonly Dictionary<string, UnityEvent> _commands;
+
+        public DialogueRunner(
+            Dictionary<string, DialogueRecord> records,
+            [CanBeNull] DialogueParser parser = null,
+            [CanBeNull] Dictionary<string, UnityEvent> commands = null
+        )
         {
             Records = records;
+
             _parser = parser;
-
-            if (_parser.Type == DialogueParserType.OnLoad)
+            if (_parser != null && _parser.Type == DialogueParserType.OnLoad)
             {
                 _parser.Parse(Records);
             }
+
+            _commands = commands;
         }
 
         /// <summary>
@@ -39,8 +44,11 @@ namespace _Project.Dialogue
         public void SetCurrentRecord(string recordId)
         {
             Assert.IsNotNull(Records[recordId]);
+
             CurrentRecord = Records[recordId];
             CurrentRecord.Reset();
+
+            CurrentRecord.Commands = _commands;
         }
 
         /// <summary>
@@ -52,7 +60,7 @@ namespace _Project.Dialogue
             if (CurrentRecord.IsAtEndOfRecord)
             {
                 DialogueLine currentLine = CurrentRecord.CurrentDialogueLine;
-                string nextRecordId = currentLine.Next;
+                string nextRecordId = currentLine.next;
                 if (nextRecordId == null)
                 {
                     // Best handling practice here?

@@ -17,8 +17,8 @@ namespace _Project.Tests.EditMode
 
             DialogueLine line = record.dialogueLines[0];
 
-            Assert.AreEqual(line.Speaker, "test-user");
-            Assert.AreEqual(line.Dialogue, "This is a test");
+            Assert.AreEqual(line.speaker, "test-user");
+            Assert.AreEqual(line.dialogue, "This is a test");
         }
 
         [Test]

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace _Project.Dialogue
 {
@@ -46,12 +47,21 @@ namespace _Project.Dialogue
         /// </summary>
         public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
 
+        public Dictionary<string, UnityEvent> Commands;
+
         /// <summary>
         /// Step to next DialogueLine in this record
         /// </summary>
         public void StepToNextDialogueLine()
         {
             currentLineId++;
+
+            if (string.IsNullOrEmpty(CurrentDialogueLine.command) || Commands == null) return;
+
+            if (Commands.ContainsKey(CurrentDialogueLine.command))
+            {
+                Commands[CurrentDialogueLine.command].Invoke();
+            }
         }
 
         /// <summary>

@@ -1,5 +1,7 @@
-﻿using _Project.Dialogue;
+﻿using System.Collections.Generic;
+using _Project.Dialogue;
 using NUnit.Framework;
+using UnityEngine.Events;
 
 namespace _Project.Tests.EditMode
 {
@@ -14,8 +16,8 @@ namespace _Project.Tests.EditMode
             runner.SetCurrentRecord("simple");
             DialogueLine line = runner.CurrentRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(line.Speaker, "simple-test-user");
-            Assert.AreEqual(line.Dialogue, "This is a simple test");
+            Assert.AreEqual(line.speaker, "simple-test-user");
+            Assert.AreEqual(line.dialogue, "This is a simple test");
         }
 
         [Test]
@@ -27,17 +29,42 @@ namespace _Project.Tests.EditMode
             runner.SetCurrentRecord("options");
             DialogueLine line = runner.CurrentRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(line.Speaker, "options-test-user");
-            Assert.AreEqual(line.Dialogue, "This is an options test");
-            Assert.AreEqual(line.Options.Count, 2);
+            Assert.AreEqual(line.speaker, "options-test-user");
+            Assert.AreEqual(line.dialogue, "This is an options test");
+            Assert.AreEqual(line.options.Count, 2);
 
-            Assert.AreEqual(line.Options[0].Speaker, "options-test-user");
-            Assert.AreEqual(line.Options[0].Dialogue, "Options test option 1");
-            Assert.AreEqual(line.Options[0].Next, "options-next-1");
+            Assert.AreEqual(line.options[0].speaker, "options-test-user");
+            Assert.AreEqual(line.options[0].dialogue, "Options test option 1");
+            Assert.AreEqual(line.options[0].next, "options-next-1");
 
-            Assert.AreEqual(line.Options[1].Speaker, "options-test-user");
-            Assert.AreEqual(line.Options[1].Dialogue, "Options test option 2");
-            Assert.AreEqual(line.Options[1].Next, "options-next-2");
+            Assert.AreEqual(line.options[1].speaker, "options-test-user");
+            Assert.AreEqual(line.options[1].dialogue, "Options test option 2");
+            Assert.AreEqual(line.options[1].next, "options-next-2");
+        }
+
+        [Test]
+        public void DialogueLineRunsCommands()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
+            bool eventWasFired = false;
+            UnityEvent testEvent = new UnityEvent();
+            testEvent.AddListener(() => { eventWasFired = true;});
+
+            Dictionary<string, UnityEvent> commands = new Dictionary<string, UnityEvent>()
+            {
+                {"_test_command", testEvent}
+            };
+
+            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
+
+            runner.SetCurrentRecord("command-line-test-id-1");
+            Assert.AreEqual(runner.CurrentRecord.CurrentDialogueLine.dialogue, "This is pre-command firing");
+
+            runner.StepToNextDialogueLine();
+            Assert.IsTrue(eventWasFired);
+
+            runner.StepToNextDialogueLine();
+            Assert.AreEqual(runner.CurrentRecord.CurrentDialogueLine.dialogue, "This is post-command firing");
         }
     }
 }
