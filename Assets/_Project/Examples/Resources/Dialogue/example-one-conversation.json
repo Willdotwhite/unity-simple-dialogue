@@ -1,0 +1,25 @@
+﻿{
+  "id": "example-conversation-1",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "Line 1"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Line 2"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Line 3"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Line 4"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "Line 5"
+    }
+  ]
+}
