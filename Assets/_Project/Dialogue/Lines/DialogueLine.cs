@@ -6,7 +6,7 @@ namespace _Project.Dialogue.Lines
     /// <summary>
     /// A DialogueLine is a single entry in a DialogueRecord (which is a subset of a larger conversation/narration)
     /// </summary>
-    public class DialogueLine : BaseDialogueLine {
+    public class DialogueLine : IDialogueLine {
         public string speaker;
 
         /// <summary>

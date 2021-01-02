@@ -2,7 +2,7 @@
 
 namespace _Project.Dialogue.Lines
 {
-    public class CommandDialogueLine : BaseDialogueLine
+    public class CommandDialogueLine : IDialogueLine
     {
         public string command;
 

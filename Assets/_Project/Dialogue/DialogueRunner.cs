@@ -13,6 +13,8 @@ namespace _Project.Dialogue
 
         public DialogueRecord CurrentRecord { get; private set; }
 
+        public IDialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
+
         private readonly Dictionary<string, UnityEvent> _commands;
 
         public DialogueRunner(

@@ -20,18 +20,19 @@ namespace _Project.Examples
             _dialogueRunner = new DialogueRunner(assetLoader.Records);
             _dialogueRunner.SetCurrentRecord("example-conversation-1");
 
-            DialogueLine firstLine = (DialogueLine) _dialogueRunner.CurrentRecord.CurrentDialogueLine; // TODO: Squish
+            IDialogueLine firstLine = _dialogueRunner.CurrentDialogueLine;
             UpdateDialogueLine(firstLine);
         }
 
         public void OnNextDialogueLine()
         {
             _dialogueRunner.StepToNextDialogueLine();
-            UpdateDialogueLine((DialogueLine) _dialogueRunner.CurrentRecord.CurrentDialogueLine);
+            UpdateDialogueLine(_dialogueRunner.CurrentDialogueLine);
         }
 
-        private void UpdateDialogueLine(DialogueLine line)
+        private void UpdateDialogueLine(IDialogueLine iLine)
         {
+            DialogueLine line = (DialogueLine) iLine;
             _text.text = $"{_text.text}\n{line.speaker}: {line.dialogue}";
         }
     }

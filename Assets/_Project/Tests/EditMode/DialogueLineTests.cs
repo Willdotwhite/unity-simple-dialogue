@@ -16,7 +16,7 @@ namespace _Project.Tests.EditMode
             DialogueRunner runner = new DialogueRunner(loader.Records);
 
             runner.SetCurrentRecord("single-file-test-id-1");
-            DialogueLine line = (DialogueLine) runner.CurrentRecord.CurrentDialogueLine;
+            DialogueLine line = (DialogueLine) runner.CurrentDialogueLine;
 
             Assert.AreEqual(line.speaker, "simple-test-user");
             Assert.AreEqual(line.dialogue, "This is a simple test");
@@ -29,7 +29,7 @@ namespace _Project.Tests.EditMode
             DialogueRunner runner = new DialogueRunner(loader.Records);
 
             runner.SetCurrentRecord("options");
-            DialogueOptionLine line = (DialogueOptionLine) runner.CurrentRecord.CurrentDialogueLine;
+            DialogueOptionLine line = (DialogueOptionLine) runner.CurrentDialogueLine;
 
             Assert.AreEqual(line.speaker, "options-test-user");
             Assert.AreEqual(line.dialogue, "This is an options test");
@@ -62,14 +62,14 @@ namespace _Project.Tests.EditMode
             DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
 
             runner.SetCurrentRecord("command-line-test-id-1");
-            DialogueLine preDialogueLine = (DialogueLine) runner.CurrentRecord.CurrentDialogueLine;
+            DialogueLine preDialogueLine = (DialogueLine) runner.CurrentDialogueLine;
             Assert.AreEqual(preDialogueLine.dialogue, "This is pre-command firing");
 
             runner.StepToNextDialogueLine();
             Assert.IsTrue(eventWasFired);
 
             runner.StepToNextDialogueLine();
-            DialogueLine postDialogueLine = (DialogueLine) runner.CurrentRecord.CurrentDialogueLine;
+            DialogueLine postDialogueLine = (DialogueLine) runner.CurrentDialogueLine;
             Assert.AreEqual(postDialogueLine.dialogue, "This is post-command firing");
         }
     }
