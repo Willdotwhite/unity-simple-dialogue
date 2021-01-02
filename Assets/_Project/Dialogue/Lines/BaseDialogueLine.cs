@@ -1,4 +1,4 @@
-﻿namespace _Project.Dialogue
+﻿namespace _Project.Dialogue.Lines
 {
     public abstract class BaseDialogueLine : IDialogueLine
     {

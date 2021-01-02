@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using _Project.Dialogue.Lines;
 using UnityEngine;
 
-namespace _Project.Dialogue
+namespace _Project.Dialogue.Config
 {
     public class DialogueAssetLoader
     {

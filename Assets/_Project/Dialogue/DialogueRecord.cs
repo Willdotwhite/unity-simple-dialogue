@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Dialogue.Lines;
 using UnityEngine.Events;
 
 namespace _Project.Dialogue

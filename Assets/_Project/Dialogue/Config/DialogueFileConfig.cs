@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _Project.Dialogue
+namespace _Project.Dialogue.Config
 {
     public class DialogueFileConfig
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Dialogue.Lines;
 
 namespace _Project.Dialogue
 {

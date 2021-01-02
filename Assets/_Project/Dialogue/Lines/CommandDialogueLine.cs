@@ -1,4 +1,6 @@
-﻿namespace _Project.Dialogue
+﻿using _Project.Dialogue.Config;
+
+namespace _Project.Dialogue.Lines
 {
     public class CommandDialogueLine : BaseDialogueLine
     {

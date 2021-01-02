@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _Project.Dialogue
+namespace _Project.Dialogue.Config
 {
     /// <summary>
     /// A DialogueLine is a single entry in a DialogueRecord (which is a subset of a larger conversation/narration)

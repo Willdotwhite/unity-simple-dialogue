@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Dialogue.Lines;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Assertions;

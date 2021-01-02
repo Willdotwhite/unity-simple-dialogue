@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using _Project.Dialogue.Config;
 
-namespace _Project.Dialogue
+namespace _Project.Dialogue.Lines
 {
     public class DialogueOptionLine : DialogueLine
     {

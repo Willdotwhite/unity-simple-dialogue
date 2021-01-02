@@ -8,20 +8,24 @@
       <e p="Assets" t="Include">
         <e p="_Project" t="Include">
           <e p="Dialogue" t="Include">
-            <e p="BaseDialogueLine.cs" t="Include" />
-            <e p="CommandDialogueLine.cs" t="Include" />
+            <e p="config" t="Include">
+              <e p="DialogueAssetLoader.cs" t="Include" />
+              <e p="DialogueFileConfig.cs" t="Include" />
+              <e p="DialogueLineConfig.cs" t="Include" />
+            </e>
             <e p="Dialogue.asmdef" t="Include" />
-            <e p="DialogueAssetLoader.cs" t="Include" />
-            <e p="DialogueFileConfig.cs" t="Include" />
-            <e p="DialogueLine.cs" t="Include" />
-            <e p="DialogueLineConfig.cs" t="Include" />
-            <e p="DialogueLineFactory.cs" t="Include" />
-            <e p="DialogueOptionLine.cs" t="Include" />
             <e p="DialogueParser.cs" t="Include" />
             <e p="DialogueParserType.cs" t="Include" />
             <e p="DialogueRecord.cs" t="Include" />
             <e p="DialogueRunner.cs" t="Include" />
-            <e p="IDialogueLine.cs" t="Include" />
+            <e p="Lines" t="Include">
+              <e p="BaseDialogueLine.cs" t="Include" />
+              <e p="CommandDialogueLine.cs" t="Include" />
+              <e p="DialogueLine.cs" t="Include" />
+              <e p="DialogueLineFactory.cs" t="Include" />
+              <e p="DialogueOptionLine.cs" t="Include" />
+              <e p="IDialogueLine.cs" t="Include" />
+            </e>
           </e>
           <e p="Tests" t="Include">
             <e p="EditMode" t="Include">
