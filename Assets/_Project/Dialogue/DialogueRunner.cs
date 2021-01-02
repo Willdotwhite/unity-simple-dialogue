@@ -59,7 +59,7 @@ namespace _Project.Dialogue
             // If at end of current Record, get next Record
             if (CurrentRecord.IsAtEndOfRecord)
             {
-                DialogueLine currentLine = CurrentRecord.CurrentDialogueLine;
+                DialogueLine currentLine = (DialogueLine) CurrentRecord.CurrentDialogueLine;
                 string nextRecordId = currentLine.next;
                 if (nextRecordId == null)
                 {

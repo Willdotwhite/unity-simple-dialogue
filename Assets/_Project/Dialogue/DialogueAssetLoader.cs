@@ -19,7 +19,19 @@ namespace _Project.Dialogue
 
             foreach (TextAsset asset in textAssets)
             {
-                DialogueRecord record = JsonUtility.FromJson<DialogueRecord>(asset.ToString());
+                DialogueFileConfig fileConfig = JsonUtility.FromJson<DialogueFileConfig>(asset.ToString());
+
+                // Rebuild IDialogueLines from non-serialisable format
+                List<IDialogueLine> lines = new List<IDialogueLine>();
+                foreach (DialogueLineConfig line in fileConfig.dialogueLines)
+                {
+                    lines.Add(DialogueLineFactory.FromConfig(line));
+                }
+
+                DialogueRecord record = new DialogueRecord();
+                record.id = fileConfig.id;
+                record.dialogueLines = lines;
+
                 Records.Add(record.id, record);
             }
         }

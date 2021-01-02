@@ -2,8 +2,8 @@
   "id": "single-file-test-id-1",
   "dialogueLines": [
     {
-      "speaker": "test-user",
-      "dialogue": "This is a test"
+      "speaker": "simple-test-user",
+      "dialogue": "This is a simple test"
     }
   ]
 }

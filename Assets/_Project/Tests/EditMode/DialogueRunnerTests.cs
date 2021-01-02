@@ -17,7 +17,7 @@ namespace _Project.Tests.EditMode
             for (int i = 1; i <= 5; i++)
             {
                 DialogueRecord record = runner.CurrentRecord;
-                DialogueLine line = record.CurrentDialogueLine;
+                DialogueLine line = (DialogueLine) record.CurrentDialogueLine;
 
                 Assert.AreEqual(line.dialogue, $"Test dialogue line {i}");
                 runner.StepToNextDialogueLine();
@@ -38,7 +38,7 @@ namespace _Project.Tests.EditMode
             Assert.IsNotNull(firstRecord);
             Assert.AreEqual(firstRecord.id, "multi-file-test-id-1");
 
-            DialogueLine firstLine = firstRecord.CurrentDialogueLine;
+            DialogueLine firstLine = (DialogueLine) firstRecord.CurrentDialogueLine;
 
             Assert.AreEqual(firstLine.speaker, "test-user");
             Assert.AreEqual(firstLine.dialogue, "This is a test");
@@ -51,7 +51,7 @@ namespace _Project.Tests.EditMode
             Assert.IsNotNull(secondRecord);
             Assert.AreEqual(secondRecord.id, "multi-file-test-id-2");
 
-            DialogueLine secondLine = secondRecord.CurrentDialogueLine;
+            DialogueLine secondLine = (DialogueLine) secondRecord.CurrentDialogueLine;
 
             Assert.AreEqual(secondLine.speaker, "test-user-2");
             Assert.AreEqual(secondLine.dialogue, "This is another test");
@@ -82,7 +82,7 @@ namespace _Project.Tests.EditMode
                 for (int j = 1; j <= 2; j++)
                 {
 
-                    DialogueLine line = record.CurrentDialogueLine;
+                    DialogueLine line = (DialogueLine) record.CurrentDialogueLine;
 
                     Assert.AreEqual(line.dialogue, $"Test dialogue line {i} - {j}");
                     runner.StepToNextDialogueLine();

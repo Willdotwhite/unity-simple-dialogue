@@ -15,10 +15,10 @@ namespace _Project.Tests.EditMode
             DialogueRecord record = loader.Records["single-file-test-id-1"];
             Assert.AreEqual(record.id, "single-file-test-id-1");
 
-            DialogueLine line = record.dialogueLines[0];
+            DialogueLine line = (DialogueLine) record.dialogueLines[0];
 
-            Assert.AreEqual(line.speaker, "test-user");
-            Assert.AreEqual(line.dialogue, "This is a test");
+            Assert.AreEqual(line.speaker, "simple-test-user");
+            Assert.AreEqual(line.dialogue, "This is a simple test");
         }
 
         [Test]

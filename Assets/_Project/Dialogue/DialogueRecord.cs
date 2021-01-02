@@ -11,7 +11,7 @@ namespace _Project.Dialogue
     /// This allows for easier management of branching conversations and game commands.
     /// </para>
     /// </summary>
-    [System.Serializable]
+    ///  TODO: REMOVE AND REFACTOR INTO TREE
     public class DialogueRecord
     {
         /// <summary>
@@ -26,7 +26,7 @@ namespace _Project.Dialogue
         /// <summary>
         /// All dialogue lines for the current record
         /// </summary>
-        public List<DialogueLine> dialogueLines;
+        public List<IDialogueLine> dialogueLines;
 
         /// <summary>
         /// Array index of the current line of dialogue
@@ -37,7 +37,7 @@ namespace _Project.Dialogue
         /// <summary>
         /// Current DialogueLine
         /// </summary>
-        public DialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
+        public IDialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
 
         /// <summary>
         /// Is the current line the last dialogueLine of this record?
@@ -56,11 +56,13 @@ namespace _Project.Dialogue
         {
             currentLineId++;
 
-            if (string.IsNullOrEmpty(CurrentDialogueLine.command) || Commands == null) return;
-
-            if (Commands.ContainsKey(CurrentDialogueLine.command))
+            if (CurrentDialogueLine is CommandDialogueLine currentCommandDialogueLine)
             {
-                Commands[CurrentDialogueLine.command].Invoke();
+                // CommandDialogueLine currentCommandDialogueLine = (CommandDialogueLine) CurrentDialogueLine;
+                if (Commands.ContainsKey(currentCommandDialogueLine.command))
+                {
+                    Commands[currentCommandDialogueLine.command].Invoke();
+                }
             }
         }
 
