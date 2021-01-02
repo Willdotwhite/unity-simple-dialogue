@@ -5,13 +5,10 @@ namespace _Project.Dialogue
 {
     public class DialogueParser
     {
-        public DialogueParserType Type { get; private set; }
+        private readonly Dictionary<string, string> replacements;
 
-        private Dictionary<string, string> replacements;
-
-        public DialogueParser(DialogueParserType type, Dictionary<string, string> replacements)
+        public DialogueParser(Dictionary<string, string> replacements)
         {
-            this.Type = type;
             this.replacements = replacements;
         }
 

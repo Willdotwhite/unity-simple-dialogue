@@ -19,7 +19,7 @@ namespace _Project.Tests.EditMode
                 {"_PARTY_MEMBER_", "Generic Party Member"},
             };
 
-            DialogueParser parser = new DialogueParser(DialogueParserType.OnLoad, substitutions);
+            DialogueParser parser = new DialogueParser(substitutions);
             DialogueRunner runner = new DialogueRunner(loader.Records, parser);
 
             runner.SetCurrentRecord("parser");

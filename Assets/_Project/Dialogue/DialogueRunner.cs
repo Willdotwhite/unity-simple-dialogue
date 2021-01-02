@@ -13,8 +13,6 @@ namespace _Project.Dialogue
 
         public DialogueRecord CurrentRecord { get; private set; }
 
-        private readonly DialogueParser _parser;
-
         private readonly Dictionary<string, UnityEvent> _commands;
 
         public DialogueRunner(
@@ -25,11 +23,7 @@ namespace _Project.Dialogue
         {
             Records = records;
 
-            _parser = parser;
-            if (_parser != null && _parser.Type == DialogueParserType.OnLoad)
-            {
-                _parser.Parse(Records);
-            }
+            parser?.Parse(Records);
 
             _commands = commands;
         }
