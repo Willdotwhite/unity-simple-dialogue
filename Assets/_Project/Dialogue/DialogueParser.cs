@@ -16,11 +16,19 @@ namespace _Project.Dialogue
         {
             foreach (DialogueRecord record in records.Values)
             {
-                foreach (DialogueLine line in record.dialogueLines)
+                foreach (IDialogueLine dialogueLine in record.dialogueLines)
                 {
+                    // Return early to avoid CastException
+                    if (dialogueLine is CommandDialogueLine)
+                    {
+                        return;
+                    }
+
+                    DialogueLine line = (DialogueLine) dialogueLine;
                     foreach (KeyValuePair<string,string> keyValuePair in replacements)
                     {
-                        line.dialogue = line.dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
+                        // TODO: Should this include speaker etc?
+                        line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
                     }
                 }
             }

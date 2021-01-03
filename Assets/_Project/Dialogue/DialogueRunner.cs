@@ -9,24 +9,34 @@ namespace _Project.Dialogue
 {
     public class DialogueRunner
     {
+        /// <summary>
+        /// Records (files) that this Runner can run through
+        /// </summary>
         private Dictionary<string, DialogueRecord> Records { get; }
 
+        /// <summary>
+        /// CurrentRecord being used for Dialogue
+        /// </summary>
         public DialogueRecord CurrentRecord { get; private set; }
 
+        /// <summary>
+        /// CurrentDialogueLine from the CurrentRecord
+        /// </summary>
         public IDialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
 
+        /// <summary>
+        /// Command look-up from string representation to UnityEvent
+        /// </summary>
         private readonly Dictionary<string, UnityEvent> _commands;
 
         public DialogueRunner(
-            Dictionary<string, DialogueRecord> records,
+            Dictionary<string, DialogueRecord> records, // TODO: tidy this up with asset loading?
             [CanBeNull] DialogueParser parser = null,
             [CanBeNull] Dictionary<string, UnityEvent> commands = null
         )
         {
             Records = records;
-
             parser?.Parse(Records);
-
             _commands = commands;
         }
 
@@ -57,7 +67,7 @@ namespace _Project.Dialogue
             if (CurrentRecord.IsAtEndOfRecord)
             {
                 DialogueLine currentLine = (DialogueLine) CurrentRecord.CurrentDialogueLine;
-                string nextRecordId = currentLine.next;
+                string nextRecordId = currentLine.Next;
                 if (nextRecordId == null)
                 {
                     // Best handling practice here?

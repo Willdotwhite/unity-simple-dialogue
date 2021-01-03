@@ -5,16 +5,16 @@ namespace _Project.Dialogue.Lines
 {
     public class DialogueOptionLine : DialogueLine
     {
-        public List<IDialogueLine> options;
+        /// <summary>
+        /// Available dialogue options
+        /// </summary>
+        public readonly List<IDialogueLine> Options = new List<IDialogueLine>();
 
         public DialogueOptionLine(DialogueLineConfig config) : base(config)
         {
-            // TODO: This is grim, refactor
-            options = new List<IDialogueLine>();
-
             foreach (DialogueLineConfig lineConfig in config.options)
             {
-                options.Add(DialogueLineFactory.FromConfig(lineConfig));
+                Options.Add(DialogueLineFactory.FromConfig(lineConfig));
             }
         }
     }

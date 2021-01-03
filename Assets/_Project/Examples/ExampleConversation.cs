@@ -33,7 +33,7 @@ namespace _Project.Examples
         private void UpdateDialogueLine(IDialogueLine iLine)
         {
             DialogueLine line = (DialogueLine) iLine;
-            _text.text = $"{_text.text}\n{line.speaker}: {line.dialogue}";
+            _text.text = $"{_text.text}\n{line.Speaker}: {line.Dialogue}";
         }
     }
 }

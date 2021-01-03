@@ -4,11 +4,14 @@ namespace _Project.Dialogue.Lines
 {
     public class CommandDialogueLine : IDialogueLine
     {
-        public string command;
+        /// <summary>
+        /// String key to UnityEvent method built in project
+        /// </summary>
+        public readonly string Command;
 
         public CommandDialogueLine(DialogueLineConfig config)
         {
-            command = config.command;
+            Command = config.command;
         }
     }
 }

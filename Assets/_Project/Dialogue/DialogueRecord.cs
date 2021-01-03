@@ -7,12 +7,16 @@ namespace _Project.Dialogue
     /// <summary>
     /// A DialogueRecord is a collection of dialogue lines grouped together,
     /// along with the logical rules for how this chunk of a conversation/narrative can flow.
+    ///
+    /// <para>
+    /// Each JSON file will be represented as a single Record
+    /// </para>
+    ///
     /// <para>
     /// It is expected that a single conversation will be broken into multiple records.
     /// This allows for easier management of branching conversations and game commands.
     /// </para>
     /// </summary>
-    ///  TODO: REMOVE AND REFACTOR INTO TREE
     public class DialogueRecord
     {
         /// <summary>
@@ -31,7 +35,6 @@ namespace _Project.Dialogue
 
         /// <summary>
         /// Array index of the current line of dialogue
-        /// TODO: We're going to need to reset this when we build loops
         /// </summary>
         private int currentLineId = 0;
 
@@ -48,6 +51,7 @@ namespace _Project.Dialogue
         /// </summary>
         public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
 
+        // TODO: Should this take event type as well?
         public Dictionary<string, UnityEvent> Commands;
 
         /// <summary>
@@ -57,13 +61,14 @@ namespace _Project.Dialogue
         {
             currentLineId++;
 
-            if (CurrentDialogueLine is CommandDialogueLine currentCommandDialogueLine)
+            if (!(CurrentDialogueLine is CommandDialogueLine currentCommandDialogueLine))
             {
-                // CommandDialogueLine currentCommandDialogueLine = (CommandDialogueLine) CurrentDialogueLine;
-                if (Commands.ContainsKey(currentCommandDialogueLine.command))
-                {
-                    Commands[currentCommandDialogueLine.command].Invoke();
-                }
+                return;
+            }
+
+            if (Commands.ContainsKey(currentCommandDialogueLine.Command))
+            {
+                Commands[currentCommandDialogueLine.Command].Invoke();
             }
         }
 
