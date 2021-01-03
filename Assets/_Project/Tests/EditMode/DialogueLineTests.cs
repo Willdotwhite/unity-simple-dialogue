@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using _Project.Dialogue;
+﻿using _Project.Dialogue;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using NUnit.Framework;
-using UnityEngine.Events;
 
 namespace _Project.Tests.EditMode
 {
+    // TODO: Refactor into class-based tests
     public class DialogueLineTests
     {
         [Test]
@@ -44,33 +43,6 @@ namespace _Project.Tests.EditMode
             Assert.AreEqual(option2.Speaker, "options-test-user");
             Assert.AreEqual(option2.Dialogue, "Options test option 2");
             Assert.AreEqual(option2.Next, "options-next-2");
-        }
-
-        [Test]
-        public void DialogueLineRunsCommands()
-        {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-            bool eventWasFired = false;
-            UnityEvent testEvent = new UnityEvent();
-            testEvent.AddListener(() => { eventWasFired = true;});
-
-            Dictionary<string, UnityEvent> commands = new Dictionary<string, UnityEvent>()
-            {
-                {"_test_command", testEvent}
-            };
-
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
-
-            runner.SetCurrentRecord("command-line-test-id-1");
-            DialogueLine preDialogueLine = (DialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual(preDialogueLine.Dialogue, "This is pre-command firing");
-
-            runner.StepToNextDialogueLine();
-            Assert.IsTrue(eventWasFired);
-
-            runner.StepToNextDialogueLine();
-            DialogueLine postDialogueLine = (DialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual(postDialogueLine.Dialogue, "This is post-command firing");
         }
     }
 }

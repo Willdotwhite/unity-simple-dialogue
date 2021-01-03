@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Project.Dialogue;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;

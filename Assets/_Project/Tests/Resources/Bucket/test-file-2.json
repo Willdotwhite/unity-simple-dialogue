@@ -1,0 +1,20 @@
+﻿{
+  "id": "command-line-test-id-2",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "This is pre-command firing"
+    },
+    {
+      "command": "_test_command",
+      "params": {
+        "key1": "value1",
+        "key2": "value2"
+      }
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "This is post-command firing"
+    }
+  ]
+}

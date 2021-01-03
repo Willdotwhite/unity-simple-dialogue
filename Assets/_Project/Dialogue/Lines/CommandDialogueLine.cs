@@ -9,9 +9,12 @@ namespace _Project.Dialogue.Lines
         /// </summary>
         public readonly string Command;
 
+        public readonly CommandParameters Params;
+
         public CommandDialogueLine(DialogueLineConfig config)
         {
             Command = config.command;
+            Params = config.@params;
         }
     }
 }

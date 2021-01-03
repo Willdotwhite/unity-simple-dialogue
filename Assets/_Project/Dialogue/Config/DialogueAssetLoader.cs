@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using _Project.Dialogue.Lines;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace _Project.Dialogue.Config
@@ -20,7 +21,7 @@ namespace _Project.Dialogue.Config
 
             foreach (TextAsset asset in textAssets)
             {
-                DialogueFileConfig fileConfig = JsonUtility.FromJson<DialogueFileConfig>(asset.ToString());
+                DialogueFileConfig fileConfig = JsonConvert.DeserializeObject<DialogueFileConfig>(asset.ToString());
 
                 // Rebuild IDialogueLines from non-serialisable format
                 List<IDialogueLine> lines = new List<IDialogueLine>();

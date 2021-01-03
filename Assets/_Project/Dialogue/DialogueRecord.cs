@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using UnityEngine.Events;
 
@@ -51,8 +53,7 @@ namespace _Project.Dialogue
         /// </summary>
         public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
 
-        // TODO: Should this take event type as well?
-        public Dictionary<string, UnityEvent> Commands;
+        public Dictionary<string, Action<CommandParameters>> Commands;
 
         /// <summary>
         /// Step to next DialogueLine in this record
@@ -61,14 +62,14 @@ namespace _Project.Dialogue
         {
             currentLineId++;
 
-            if (!(CurrentDialogueLine is CommandDialogueLine currentCommandDialogueLine))
+            if (!(CurrentDialogueLine is CommandDialogueLine commandDialogueLine))
             {
                 return;
             }
 
-            if (Commands.ContainsKey(currentCommandDialogueLine.Command))
+            if (Commands.ContainsKey(commandDialogueLine.Command))
             {
-                Commands[currentCommandDialogueLine.Command].Invoke();
+                Commands[commandDialogueLine.Command].Invoke(commandDialogueLine.Params);
             }
         }
 

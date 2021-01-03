@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -27,12 +29,12 @@ namespace _Project.Dialogue
         /// <summary>
         /// Command look-up from string representation to UnityEvent
         /// </summary>
-        private readonly Dictionary<string, UnityEvent> _commands;
+        private readonly Dictionary<string, Action<CommandParameters>> _commands;
 
         public DialogueRunner(
             Dictionary<string, DialogueRecord> records, // TODO: tidy this up with asset loading?
             [CanBeNull] DialogueParser parser = null,
-            [CanBeNull] Dictionary<string, UnityEvent> commands = null
+            [CanBeNull] Dictionary<string, Action<CommandParameters>> commands = null
         )
         {
             Records = records;
@@ -66,6 +68,7 @@ namespace _Project.Dialogue
             // If at end of current Record, get next Record
             if (CurrentRecord.IsAtEndOfRecord)
             {
+                // TODO: Fix if command is EOF
                 DialogueLine currentLine = (DialogueLine) CurrentRecord.CurrentDialogueLine;
                 string nextRecordId = currentLine.Next;
                 if (nextRecordId == null)
