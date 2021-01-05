@@ -22,11 +22,14 @@ namespace _Project.Dialogue
         public DialogueRecord CurrentRecord { get; private set; }
 
         /// <summary>
-        /// CurrentDialogueLine from the CurrentRecord
+        /// CurrentDialogueLine from the _currentRecord
         /// </summary>
         public DialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
 
-        public bool HasNextLine { get; private set; }
+        /// <summary>
+        /// Does the Runner have a valid DialogueLine it can reach?
+        /// </summary>
+        private bool _hasNextLine;
 
         /// <summary>
         /// Command look-up from string representation to UnityEvent
@@ -34,7 +37,7 @@ namespace _Project.Dialogue
         private readonly Dictionary<string, Action<CommandParameters>> _commands;
 
         public DialogueRunner(
-            Dictionary<string, DialogueRecord> records, // TODO: tidy this up with asset loading?
+            Dictionary<string, DialogueRecord> records,
             [CanBeNull] DialogueParser parser = null,
             [CanBeNull] Dictionary<string, Action<CommandParameters>> commands = null
         )
@@ -51,19 +54,20 @@ namespace _Project.Dialogue
         /// </para>
         /// </summary>
         /// <param name="recordId"></param>
-        // TODO: Should this be called automatically if you only load a single file?
         public void SetCurrentRecord(string recordId)
         {
-            Assert.IsNotNull(Records[recordId]);
+            if (!Records.ContainsKey(recordId))
+            {
+                throw new KeyNotFoundException($"Could not set current record to {recordId}, no record of that ID exists");
+            }
 
-            // TODO: Throw exception if recordId not exist
             CurrentRecord = Records[recordId];
             CurrentRecord.Reset();
 
             CurrentRecord.Commands = _commands;
 
             // Should I check if this isn't empty?
-            HasNextLine = true;
+            _hasNextLine = true;
         }
 
         /// <summary>
@@ -72,7 +76,7 @@ namespace _Project.Dialogue
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         public bool StepToNextDialogueLine()
         {
-            if (!HasNextLine)
+            if (!_hasNextLine)
             {
                 return false;
             }
@@ -106,7 +110,7 @@ namespace _Project.Dialogue
             if (nextRecordId == null)
             {
                 // Best handling practice here?
-                HasNextLine = false;
+                _hasNextLine = false;
                 Debug.LogWarning("DialogueRunner has hit end of dialogue");
                 return false;
             }
@@ -136,7 +140,7 @@ namespace _Project.Dialogue
                 Step();
 
                 // Escape infinite loop if CommandDialogueLine is last command of last Record
-                if (!HasNextLine)
+                if (!_hasNextLine)
                 {
                     break;
                 }

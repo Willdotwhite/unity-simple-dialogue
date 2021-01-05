@@ -42,7 +42,6 @@ namespace _Project.Tests.EditMode
             runner.StepToNextDialogueLine();
             SpokenDialogueLine postDialogueLine = (SpokenDialogueLine) runner.CurrentDialogueLine;
             Assert.AreEqual(postDialogueLine.Dialogue, "This is post-command firing");
-            Assert.IsFalse(runner.HasNextLine);
             Assert.IsTrue(runner.CurrentRecord.IsAtEndOfRecord);
         }
 
