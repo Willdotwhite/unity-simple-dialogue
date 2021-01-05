@@ -1,22 +1,16 @@
-﻿using System.Collections.Generic;
-using _Project.Dialogue.Config;
+﻿using _Project.Dialogue.Config;
 
 namespace _Project.Dialogue.Lines
 {
     /// <summary>
     /// A DialogueLine is a single entry in a DialogueRecord (which is a subset of a larger conversation/narration)
+    /// <para>
+    /// This is the base class of this system, all classes need to be based off of this
+    /// </para>
     /// </summary>
-    public class DialogueLine : IDialogueLine {
+    public abstract class DialogueLine {
 
-        /// <summary>
-        /// Who is speaking this line?
-        /// </summary>
-        public string Speaker;
-
-        /// <summary>
-        /// Dialogue of the line, what is being said
-        /// </summary>
-        public string Dialogue;
+        // TODO: ID?
 
         /// <summary>
         /// ID of the next line of dialogue
@@ -28,8 +22,6 @@ namespace _Project.Dialogue.Lines
 
         public DialogueLine(DialogueLineConfig config)
         {
-            Speaker = config.speaker;
-            Dialogue = config.dialogue;
             Next = config.next;
         }
     }

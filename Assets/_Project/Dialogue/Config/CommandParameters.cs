@@ -3,5 +3,5 @@
 namespace _Project.Dialogue.Config
 {
     [Serializable]
-    public class CommandParameters : SerializableDictionary<string, string> { } // TODO: <string, object>
+    public class CommandParameters : SerializableDictionary<string, object> { }
 }

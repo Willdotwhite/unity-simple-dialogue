@@ -16,7 +16,7 @@ namespace _Project.Dialogue
         {
             foreach (DialogueRecord record in records.Values)
             {
-                foreach (IDialogueLine dialogueLine in record.dialogueLines)
+                foreach (DialogueLine dialogueLine in record.dialogueLines)
                 {
                     // Return early to avoid CastException
                     if (dialogueLine is CommandDialogueLine)
@@ -24,7 +24,7 @@ namespace _Project.Dialogue
                         return;
                     }
 
-                    DialogueLine line = (DialogueLine) dialogueLine;
+                    SpokenDialogueLine line = (SpokenDialogueLine) dialogueLine;
                     foreach (KeyValuePair<string,string> keyValuePair in replacements)
                     {
                         // TODO: Should this include speaker etc?

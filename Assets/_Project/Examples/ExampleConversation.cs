@@ -20,8 +20,7 @@ namespace _Project.Examples
             _dialogueRunner = new DialogueRunner(assetLoader.Records);
             _dialogueRunner.SetCurrentRecord("example-conversation-1");
 
-            IDialogueLine firstLine = _dialogueRunner.CurrentDialogueLine;
-            UpdateDialogueLine(firstLine);
+            UpdateDialogueLine(_dialogueRunner.CurrentDialogueLine);
         }
 
         public void OnNextDialogueLine()
@@ -30,10 +29,10 @@ namespace _Project.Examples
             UpdateDialogueLine(_dialogueRunner.CurrentDialogueLine);
         }
 
-        private void UpdateDialogueLine(IDialogueLine iLine)
+        private void UpdateDialogueLine(DialogueLine line)
         {
-            DialogueLine line = (DialogueLine) iLine;
-            _text.text = $"{_text.text}\n{line.Speaker}: {line.Dialogue}";
+            SpokenDialogueLine spokenLine = (SpokenDialogueLine) line;
+            _text.text = $"{_text.text}\n{spokenLine.Speaker}: {spokenLine.Dialogue}";
         }
     }
 }

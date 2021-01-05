@@ -1,0 +1,14 @@
+﻿{
+  "id": "command-line-test-id-4",
+  "dialogueLines": [
+    {
+      "command": "_test_command",
+      "params": {
+        "key1": "string",
+        "key2": 100,
+        "key3": false,
+        "key4": 104.5
+      }
+    }
+  ]
+}

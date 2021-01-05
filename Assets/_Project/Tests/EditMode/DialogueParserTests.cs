@@ -27,19 +27,19 @@ namespace _Project.Tests.EditMode
             /* Test current record is loaded as expected */
             DialogueRecord record = runner.CurrentRecord;
 
-            DialogueLine firstLine = (DialogueLine) record.CurrentDialogueLine;
+            SpokenDialogueLine firstLine = (SpokenDialogueLine) record.CurrentDialogueLine;
             Assert.AreEqual(firstLine.Speaker, "test-user");
             Assert.AreEqual(firstLine.Dialogue, "Hello Player");
 
             record.StepToNextDialogueLine();
 
-            DialogueLine secondLine = (DialogueLine) record.CurrentDialogueLine;
+            SpokenDialogueLine secondLine = (SpokenDialogueLine) record.CurrentDialogueLine;
             Assert.AreEqual(secondLine.Speaker, "test-user-2");
             Assert.AreEqual(secondLine.Dialogue, "Hello Generic Party Member");
 
             record.StepToNextDialogueLine();
 
-            DialogueLine thirdLine = (DialogueLine) record.CurrentDialogueLine;
+            SpokenDialogueLine thirdLine = (SpokenDialogueLine) record.CurrentDialogueLine;
             Assert.AreEqual(thirdLine.Speaker, "test-user");
             Assert.AreEqual(thirdLine.Dialogue, "Test dialogue line 3");
         }

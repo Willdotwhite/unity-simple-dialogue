@@ -4,11 +4,11 @@ namespace _Project.Dialogue.Lines
 {
     public static class DialogueLineFactory
     {
-        public static IDialogueLine FromConfig(DialogueLineConfig config)
+        public static DialogueLine FromConfig(DialogueLineConfig config)
         {
             if (config.options != null && config.options.Count > 0)
             {
-                return new DialogueOptionLine(config);
+                return new OptionsDialogueLine(config);
             }
 
             if (config.command != null)
@@ -16,7 +16,7 @@ namespace _Project.Dialogue.Lines
                 return new CommandDialogueLine(config);
             }
 
-            return new DialogueLine(config);
+            return new SpokenDialogueLine(config);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace _Project.Dialogue.Lines
 {
-    public class CommandDialogueLine : IDialogueLine
+    public class CommandDialogueLine : DialogueLine
     {
         /// <summary>
         /// String key to UnityEvent method built in project
@@ -11,7 +11,7 @@ namespace _Project.Dialogue.Lines
 
         public readonly CommandParameters Params;
 
-        public CommandDialogueLine(DialogueLineConfig config)
+        public CommandDialogueLine(DialogueLineConfig config): base(config)
         {
             Command = config.command;
             Params = config.@params;

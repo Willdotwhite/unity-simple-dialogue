@@ -23,8 +23,7 @@ namespace _Project.Dialogue.Config
             {
                 DialogueFileConfig fileConfig = JsonConvert.DeserializeObject<DialogueFileConfig>(asset.ToString());
 
-                // Rebuild IDialogueLines from non-serialisable format
-                List<IDialogueLine> lines = new List<IDialogueLine>();
+                List<DialogueLine> lines = new List<DialogueLine>();
                 foreach (DialogueLineConfig line in fileConfig.dialogueLines)
                 {
                     lines.Add(DialogueLineFactory.FromConfig(line));

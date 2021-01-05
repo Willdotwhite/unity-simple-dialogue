@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using JetBrains.Annotations;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Events;
 
 namespace _Project.Dialogue
 {
@@ -24,7 +24,9 @@ namespace _Project.Dialogue
         /// <summary>
         /// CurrentDialogueLine from the CurrentRecord
         /// </summary>
-        public IDialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
+        public DialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
+
+        public bool HasNextLine { get; private set; }
 
         /// <summary>
         /// Command look-up from string representation to UnityEvent
@@ -54,10 +56,14 @@ namespace _Project.Dialogue
         {
             Assert.IsNotNull(Records[recordId]);
 
+            // TODO: Throw exception if recordId not exist
             CurrentRecord = Records[recordId];
             CurrentRecord.Reset();
 
             CurrentRecord.Commands = _commands;
+
+            // Should I check if this isn't empty?
+            HasNextLine = true;
         }
 
         /// <summary>
@@ -65,16 +71,28 @@ namespace _Project.Dialogue
         /// </summary>
         public void StepToNextDialogueLine()
         {
+            // Check for next Line being a Command, evaluate until non-Command line
+            EvaluateCurrentRecordForCommands();
+
+            // Make next non-Command line CurrentDialogueLine
+            Step();
+        }
+
+        /// <summary>
+        /// Step to next line, walking to next Record if necessary
+        /// </summary>
+        private void Step()
+        {
             // If at end of current Record, get next Record
             if (CurrentRecord.IsAtEndOfRecord)
             {
-                // TODO: Fix if command is EOF
-                DialogueLine currentLine = (DialogueLine) CurrentRecord.CurrentDialogueLine;
-                string nextRecordId = currentLine.Next;
+                string nextRecordId = CurrentRecord.CurrentDialogueLine.Next;
                 if (nextRecordId == null)
                 {
                     // Best handling practice here?
                     Debug.LogWarning("DialogueRunner has hit end of dialogue");
+                    HasNextLine = false;
+
                     return;
                 }
 
@@ -84,6 +102,31 @@ namespace _Project.Dialogue
 
             // Else, just step along
             CurrentRecord.StepToNextDialogueLine();
+        }
+
+        // TODO: Move into Record
+        private void EvaluateCurrentRecordForCommands()
+        {
+            while (CurrentDialogueLine is CommandDialogueLine commandDialogueLine)
+            {
+                if (!CurrentRecord.Commands.ContainsKey(commandDialogueLine.Command))
+                {
+                    // TODO: BETTER
+                    throw new ArgumentOutOfRangeException($"{commandDialogueLine.Command} has not been defined in Command list for Dialogue");
+                }
+
+                // Invoke Command with Parameters
+                CurrentRecord.Commands[commandDialogueLine.Command].Invoke(commandDialogueLine.Params);
+
+                // Walk to next line in Record/next Record to handle multiple Commands in sequence
+                Step();
+
+                // Escape infinite loop if CommandDialogueLine is last command of last Record
+                if (!HasNextLine)
+                {
+                    break;
+                }
+            }
         }
 
     }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
-using UnityEngine.Events;
 
 namespace _Project.Dialogue
 {
@@ -33,7 +32,7 @@ namespace _Project.Dialogue
         /// <summary>
         /// All dialogue lines for the current record
         /// </summary>
-        public List<IDialogueLine> dialogueLines;
+        public List<DialogueLine> dialogueLines;
 
         /// <summary>
         /// Array index of the current line of dialogue
@@ -43,7 +42,7 @@ namespace _Project.Dialogue
         /// <summary>
         /// Current DialogueLine
         /// </summary>
-        public IDialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
+        public DialogueLine CurrentDialogueLine => dialogueLines[currentLineId];
 
         /// <summary>
         /// Is the current line the last dialogueLine of this record?
@@ -61,16 +60,6 @@ namespace _Project.Dialogue
         public void StepToNextDialogueLine()
         {
             currentLineId++;
-
-            if (!(CurrentDialogueLine is CommandDialogueLine commandDialogueLine))
-            {
-                return;
-            }
-
-            if (Commands.ContainsKey(commandDialogueLine.Command))
-            {
-                Commands[commandDialogueLine.Command].Invoke(commandDialogueLine.Params);
-            }
         }
 
         /// <summary>
