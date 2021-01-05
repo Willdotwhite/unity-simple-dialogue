@@ -67,52 +67,66 @@ namespace _Project.Dialogue
         }
 
         /// <summary>
-        /// Step through to "next"
+        /// Step to the next line of dialogue and return whether this was successful
         /// </summary>
-        public void StepToNextDialogueLine()
+        /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
+        public bool StepToNextDialogueLine()
         {
+            if (!HasNextLine)
+            {
+                return false;
+            }
+
             // Check for next Line being a Command, evaluate until non-Command line
             EvaluateCurrentRecordForCommands();
 
             // Make next non-Command line CurrentDialogueLine
-            Step();
+            return Step();
         }
 
         /// <summary>
         /// Step to next line, walking to next Record if necessary
+        /// <para>
+        /// Same as StepToNextDialogueLine, return if Step has found a new DialogueLine
+        /// </para>
+        /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         /// </summary>
-        private void Step()
+        private bool Step()
         {
-            // If at end of current Record, get next Record
-            if (CurrentRecord.IsAtEndOfRecord)
+            // If you're stepping through a record, just keep going
+            if (!CurrentRecord.IsAtEndOfRecord)
             {
-                string nextRecordId = CurrentRecord.CurrentDialogueLine.Next;
-                if (nextRecordId == null)
-                {
-                    // Best handling practice here?
-                    Debug.LogWarning("DialogueRunner has hit end of dialogue");
-                    HasNextLine = false;
-
-                    return;
-                }
-
-                SetCurrentRecord(nextRecordId);
-                return;
+                // Else, just step along
+                CurrentRecord.StepToNextDialogueLine();
+                return true;
             }
 
-            // Else, just step along
-            CurrentRecord.StepToNextDialogueLine();
+            // If at end of current Record, get next Record
+            string nextRecordId = CurrentRecord.CurrentDialogueLine.Next;
+            if (nextRecordId == null)
+            {
+                // Best handling practice here?
+                HasNextLine = false;
+                Debug.LogWarning("DialogueRunner has hit end of dialogue");
+                return false;
+            }
+
+            SetCurrentRecord(nextRecordId);
+            return true;
         }
 
-        // TODO: Move into Record
+        /// <summary>
+        /// Attempt to run (sequential) CurrentDialogueLine Command(s), by running all commands in order and
+        /// exiting when stepping to non-Command line
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void EvaluateCurrentRecordForCommands()
         {
             while (CurrentDialogueLine is CommandDialogueLine commandDialogueLine)
             {
                 if (!CurrentRecord.Commands.ContainsKey(commandDialogueLine.Command))
                 {
-                    // TODO: BETTER
-                    throw new ArgumentOutOfRangeException($"{commandDialogueLine.Command} has not been defined in Command list for Dialogue");
+                    throw new ArgumentOutOfRangeException($"{commandDialogueLine.Command} has not been defined in Command list for {CurrentRecord.id}");
                 }
 
                 // Invoke Command with Parameters

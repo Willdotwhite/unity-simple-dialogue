@@ -25,8 +25,10 @@ namespace _Project.Examples
 
         public void OnNextDialogueLine()
         {
-            _dialogueRunner.StepToNextDialogueLine();
-            UpdateDialogueLine(_dialogueRunner.CurrentDialogueLine);
+            if (_dialogueRunner.StepToNextDialogueLine())
+            {
+                UpdateDialogueLine(_dialogueRunner.CurrentDialogueLine);
+            }
         }
 
         private void UpdateDialogueLine(DialogueLine line)
