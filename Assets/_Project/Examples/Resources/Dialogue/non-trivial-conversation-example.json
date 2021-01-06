@@ -1,0 +1,33 @@
+﻿{
+  "id": "non-trivial-conversation::start",
+  "dialogueLines": [
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Welcome! Thanks for using my tool!"
+    },
+    {
+      "command": "_toggle_colour_buttons"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Choose a background colour!",
+      "options": [
+        {
+          "speaker": "user",
+          "dialogue": "Ummm... red, I guess?",
+          "next": "non-trivial-conversation::colour-option::red"
+        },
+        {
+          "speaker": "user",
+          "dialogue": "I prefer green!",
+          "next": "non-trivial-conversation::colour-option::green"
+        },
+        {
+          "speaker": "user",
+          "dialogue": "Blue is definitely the best!",
+          "next": "non-trivial-conversation::colour-option::blue"
+        }
+      ]
+    }
+  ]
+}

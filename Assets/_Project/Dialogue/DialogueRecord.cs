@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 
@@ -51,6 +52,14 @@ namespace _Project.Dialogue
         /// </para>
         /// </summary>
         public bool IsAtEndOfRecord => currentLineId == dialogueLines.Count - 1;
+
+        /// <summary>
+        /// Is the current line the first dialogueLine of this record?
+        /// <para>
+        /// Note: This will be true if a record only contains a single dialogueLine!
+        /// </para>
+        /// </summary>
+        public bool IsAtStartOfRecord => currentLineId == 0;
 
         public Dictionary<string, Action<CommandParameters>> Commands;
 

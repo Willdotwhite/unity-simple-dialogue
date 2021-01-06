@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Project.Dialogue.Config;
 
 namespace _Project.Dialogue.Lines
@@ -8,14 +9,22 @@ namespace _Project.Dialogue.Lines
         /// <summary>
         /// Available dialogue options
         /// </summary>
-        public readonly List<DialogueLine> Options = new List<DialogueLine>();
+        public readonly List<SpokenDialogueLine> Options = new List<SpokenDialogueLine>();
 
         public OptionsDialogueLine(DialogueLineConfig config) : base(config)
         {
             foreach (DialogueLineConfig lineConfig in config.options)
             {
-                Options.Add(DialogueLineFactory.FromConfig(lineConfig));
+                // TODO: Handle CommandDialogueLine cases
+                DialogueLine line = DialogueLineFactory.FromConfig(lineConfig);
+                Options.Add((SpokenDialogueLine) line);
             }
+        }
+
+        // TODO: Set chosen option here?
+        public SpokenDialogueLine GetOptionByNext(string next)
+        {
+            return Options.First(o => o.Next.Equals(next));
         }
     }
 }

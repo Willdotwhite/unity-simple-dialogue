@@ -1,0 +1,33 @@
+﻿{
+  "id": "non-trivial-conversation::colour-option::green",
+  "dialogueLines": [
+    {
+      "command": "_toggle_colour_buttons"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Was Bulbasaur your favourite Pokemon too?"
+    },
+    {
+      "command": "_background_colour_change",
+      "params": {
+        "r": 0,
+        "g": 220,
+        "b": 0
+      }
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Don't get me wrong, I picked Bulbasaur a lot."
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Not as much as Squirtle but never mind!"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Poke-fun over, let's get back to the main chat",
+      "next": "non-trivial-conversation::post-colour"
+    }
+  ]
+}

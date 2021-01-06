@@ -74,18 +74,29 @@ namespace _Project.Dialogue
         /// Step to the next line of dialogue and return whether this was successful
         /// </summary>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
-        public bool StepToNextDialogueLine()
+        public bool StepToNextDialogueLine([CanBeNull] DialogueLine targetDialogueLine = null)
         {
             if (!_hasNextLine)
             {
                 return false;
             }
 
-            // Check for next Line being a Command, evaluate until non-Command line
-            EvaluateCurrentRecordForCommands();
+            // Check for the first line of dialogue being a Command,
+            // because the automatic event firing will cause multiple steps to happen at once
+            if (CurrentRecord.IsAtStartOfRecord)
+            {
+                EvaluateCurrentRecordForCommands();
+            }
+
+            bool steppedToNextLine = Step(targetDialogueLine);
+            if (steppedToNextLine)
+            {
+                // Check for next Line being a Command, evaluate until non-Command line
+                EvaluateCurrentRecordForCommands();
+            }
 
             // Make next non-Command line CurrentDialogueLine
-            return Step();
+            return steppedToNextLine;
         }
 
         /// <summary>
@@ -95,7 +106,7 @@ namespace _Project.Dialogue
         /// </para>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         /// </summary>
-        private bool Step()
+        private bool Step([CanBeNull] DialogueLine targetDialogueLine = null)
         {
             // If you're stepping through a record, just keep going
             if (!CurrentRecord.IsAtEndOfRecord)
@@ -105,8 +116,20 @@ namespace _Project.Dialogue
                 return true;
             }
 
+            string nextRecordId = CurrentDialogueLine.Next;
+
             // If at end of current Record, get next Record
-            string nextRecordId = CurrentRecord.CurrentDialogueLine.Next;
+            if (CurrentDialogueLine is OptionsDialogueLine)
+            {
+                if (targetDialogueLine == null)
+                {
+                    Debug.LogWarning("DialogueRunner is waiting for OptionsDialogueLine option, and cannot continue");
+                    return false;
+                }
+
+                nextRecordId = targetDialogueLine.Next;
+            }
+
             if (nextRecordId == null)
             {
                 // Best handling practice here?
@@ -128,6 +151,11 @@ namespace _Project.Dialogue
         {
             while (CurrentDialogueLine is CommandDialogueLine commandDialogueLine)
             {
+                if (CurrentRecord.Commands == null)
+                {
+                    throw new ArgumentOutOfRangeException($"{CurrentRecord.id} has no commands set, but is trying to fire {commandDialogueLine.Command}. Did you forget to add your commands?");
+                }
+
                 if (!CurrentRecord.Commands.ContainsKey(commandDialogueLine.Command))
                 {
                     throw new ArgumentOutOfRangeException($"{commandDialogueLine.Command} has not been defined in Command list for {CurrentRecord.id}");

@@ -1,0 +1,21 @@
+﻿{
+  "id": "non-trivial-conversation::post-colour",
+  "dialogueLines": [
+    {
+      "speaker": "npc::dev",
+      "dialogue": "And we're back! All three colour groups have reunited here."
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "One more thing - you started this dialogue with me at __TIME__"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "I hope shows the flexibility of this tool"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Thanks!"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+﻿{
+  "id": "non-trivial-conversation::colour-option::red",
+  "dialogueLines": [
+    {
+      "command": "_toggle_colour_buttons"
+    },
+    {
+      "command": "_background_colour_change",
+      "params": {
+        "r": 0,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Good choice"
+    },
+    {
+      "command": "_background_colour_change",
+      "params": {
+        "r": 200,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Red is definitely the best"
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "But let's rejoin the main conversation branch now...",
+      "next": "non-trivial-conversation::post-colour"
+    }
+  ]
+}

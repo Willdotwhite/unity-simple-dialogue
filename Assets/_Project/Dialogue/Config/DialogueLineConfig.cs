@@ -12,6 +12,6 @@ namespace _Project.Dialogue.Config
         public string next;
         public string command;
         public List<DialogueLineConfig> options;
-        public CommandParameters @params;
+        public SerializableCommandParameters @params;
     }
 }

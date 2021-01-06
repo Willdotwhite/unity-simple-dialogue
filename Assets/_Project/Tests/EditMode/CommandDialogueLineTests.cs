@@ -98,9 +98,9 @@ namespace _Project.Tests.EditMode
             runner.StepToNextDialogueLine();
 
             Assert.IsInstanceOf<string>(_params["key1"]);
-            Assert.IsInstanceOf<long>(_params["key2"]);
+            Assert.IsInstanceOf<int>(_params["key2"]);
             Assert.IsInstanceOf<bool>(_params["key3"]);
-            Assert.IsInstanceOf<double>(_params["key4"]);
+            Assert.IsInstanceOf<float>(_params["key4"]);
         }
 
 
