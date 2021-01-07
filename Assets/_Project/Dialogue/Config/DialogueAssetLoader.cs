@@ -27,7 +27,7 @@ namespace _Project.Dialogue.Config
             {
                 DialogueFileConfig fileConfig = JsonConvert.DeserializeObject<DialogueFileConfig>(asset.ToString());
                 List<DialogueLine> lines = fileConfig.dialogueLines.Select(DialogueLineFactory.FromConfig).ToList();
-                DialogueRecord record = new DialogueRecord {id = fileConfig.id, dialogueLines = lines};
+                DialogueRecord record = new DialogueRecord(fileConfig.id, lines);
 
                 Records.Add(record.id, record);
             }

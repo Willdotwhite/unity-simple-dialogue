@@ -10,6 +10,7 @@ namespace _Project.Dialogue.Lines
     /// When building the DialogueRunner.Records collection, FINISH THIS LATER
     /// </para>
     /// </summary>
+    // TODO: RENAME THIS CLASS
     public class OptionBranchDialogueLine: SpokenDialogueLine
     {
         public List<DialogueLine> Branch;

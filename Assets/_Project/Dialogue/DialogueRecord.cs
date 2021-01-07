@@ -63,6 +63,12 @@ namespace _Project.Dialogue
 
         public Dictionary<string, Action<CommandParameters>> Commands;
 
+        public DialogueRecord(string id, List<DialogueLine> dialogueLines)
+        {
+            this.id = id;
+            this.dialogueLines = dialogueLines;
+        }
+
         /// <summary>
         /// Step to next DialogueLine in this record
         /// </summary>
