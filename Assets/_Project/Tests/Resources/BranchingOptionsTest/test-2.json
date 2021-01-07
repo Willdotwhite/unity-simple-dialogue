@@ -1,0 +1,80 @@
+﻿{
+  "id": "nested-branching-options",
+  "dialogueLines": [
+    {
+      "speaker": "options-test-user",
+      "dialogue": "This is an options test",
+      "options": [
+        {
+          "speaker": "options-test-user",
+          "dialogue": "Options test option 1",
+          "branch": [
+            {
+              "speaker": "options-test-user",
+              "dialogue": "Branch 1 line 1"
+            },
+            {
+              "speaker": "options-test-user",
+              "dialogue": "Branch 1 line 2"
+            },
+            {
+              "speaker": "options-test-user",
+              "dialogue": "Branch 1 line 3",
+              "options": [
+                {
+                  "speaker": "options-test-user",
+                  "dialogue": "Options test option 1.1",
+                  "branch": [
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.1 line 1"
+                    },
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.1 line 2"
+                    },
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.1 line 3",
+                      "next": "nested-branching-options"
+                    }
+                  ]
+                },
+                {
+                  "speaker": "options-test-user",
+                  "dialogue": "Options test option 1.2",
+                  "branch": [
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.2 line 1"
+                    },
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.2 line 2"
+                    },
+                    {
+                      "speaker": "options-test-user",
+                      "dialogue": "Branch 1.2 line 3",
+                      "next": "nested-branching-options"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "speaker": "options-test-user",
+          "dialogue": "Options test option 2",
+          "branch": [
+            {
+              "speaker": "options-test-user",
+              "dialogue": "Branch 2 line 3",
+              "next": "nested-branching-options"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

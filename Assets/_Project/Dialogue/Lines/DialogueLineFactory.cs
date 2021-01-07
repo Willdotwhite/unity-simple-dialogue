@@ -34,6 +34,11 @@ namespace _Project.Dialogue.Lines
                 return new OptionsDialogueLine(config);
             }
 
+            if (config.branch != null && config.branch.Count > 0)
+            {
+                return new OptionBranchDialogueLine(config);
+            }
+
             if (config.command != null)
             {
                 return new CommandDialogueLine(config);
