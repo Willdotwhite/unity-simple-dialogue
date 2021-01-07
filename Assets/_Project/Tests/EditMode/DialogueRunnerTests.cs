@@ -20,7 +20,7 @@ namespace _Project.Tests.EditMode
                 DialogueRecord record = runner.CurrentRecord;
                 SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
 
-                Assert.AreEqual(line.Dialogue, $"Test dialogue line {i}");
+                Assert.AreEqual($"Test dialogue line {i}", line.Dialogue);
                 runner.StepToNextDialogueLine();
             }
         }
@@ -35,7 +35,7 @@ namespace _Project.Tests.EditMode
             OptionsDialogueLine currentOptionsDialogueLine = (OptionsDialogueLine) runner.CurrentDialogueLine;
             DialogueLine targetLine = currentOptionsDialogueLine.Options[0];
             runner.StepToNextDialogueLine(targetLine);
-            Assert.AreEqual(runner.CurrentRecord.id, "options-next-1");
+            Assert.AreEqual("options-next-1", runner.CurrentRecord.id);
         }
 
 
@@ -50,7 +50,7 @@ namespace _Project.Tests.EditMode
             bool success = runner.StepToNextDialogueLine();
 
             // TODO: How to handle logging output?
-            Assert.AreEqual(success, false);
+            Assert.AreEqual(false, success);
         }
 
         [Test]
@@ -65,25 +65,25 @@ namespace _Project.Tests.EditMode
             DialogueRecord firstRecord = runner.CurrentRecord;
 
             Assert.IsNotNull(firstRecord);
-            Assert.AreEqual(firstRecord.id, "multi-file-test-id-1");
+            Assert.AreEqual("multi-file-test-id-1", firstRecord.id);
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) firstRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(firstLine.Speaker, "test-user");
-            Assert.AreEqual(firstLine.Dialogue, "This is a test");
-            Assert.AreEqual(firstLine.Next, "multi-file-test-id-2");
+            Assert.AreEqual("test-user", firstLine.Speaker);
+            Assert.AreEqual("This is a test", firstLine.Dialogue);
+            Assert.AreEqual("multi-file-test-id-2", firstLine.Next);
 
             /* Call to step forwards and check "next" lookup has worked as expected */
             runner.StepToNextDialogueLine();
             DialogueRecord secondRecord = runner.CurrentRecord;
 
             Assert.IsNotNull(secondRecord);
-            Assert.AreEqual(secondRecord.id, "multi-file-test-id-2");
+            Assert.AreEqual("multi-file-test-id-2", secondRecord.id);
 
             SpokenDialogueLine secondLine = (SpokenDialogueLine) secondRecord.CurrentDialogueLine;
 
-            Assert.AreEqual(secondLine.Speaker, "test-user-2");
-            Assert.AreEqual(secondLine.Dialogue, "This is another test");
+            Assert.AreEqual("test-user-2", secondLine.Speaker);
+            Assert.AreEqual("This is another test", secondLine.Dialogue);
             Assert.IsNull(secondLine.Next);
         }
 
@@ -113,7 +113,7 @@ namespace _Project.Tests.EditMode
 
                     SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
 
-                    Assert.AreEqual(line.Dialogue, $"Test dialogue line {i} - {j}");
+                    Assert.AreEqual($"Test dialogue line {i} - {j}", line.Dialogue);
                     runner.StepToNextDialogueLine();
                 }
             }

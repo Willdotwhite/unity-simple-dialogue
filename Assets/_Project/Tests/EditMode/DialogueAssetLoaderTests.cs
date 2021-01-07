@@ -15,19 +15,19 @@ namespace _Project.Tests.EditMode
             Assert.NotZero(loader.Records.Count);
 
             DialogueRecord record = loader.Records["single-file-test-id-1"];
-            Assert.AreEqual(record.id, "single-file-test-id-1");
+            Assert.AreEqual("single-file-test-id-1", record.id);
 
             SpokenDialogueLine line = (SpokenDialogueLine) record.dialogueLines[0];
 
-            Assert.AreEqual(line.Speaker, "simple-test-user");
-            Assert.AreEqual(line.Dialogue, "This is a simple test");
+            Assert.AreEqual("simple-test-user", line.Speaker);
+            Assert.AreEqual("This is a simple test", line.Dialogue);
         }
 
         [Test]
         public void DialogueAssetLoadsAllRelatedFiles()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
-            Assert.AreEqual(loader.Records.Count, 2);
+            Assert.AreEqual(2, loader.Records.Count);
         }
 
         [Test]

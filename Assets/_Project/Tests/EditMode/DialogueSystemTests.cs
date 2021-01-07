@@ -13,14 +13,14 @@ namespace _Project.Tests.EditMode
             DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTests", "example-conversation-1");
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
-            Assert.AreEqual(firstLine.Speaker, "test-user");
-            Assert.AreEqual(firstLine.Dialogue, "This is a test");
+            Assert.AreEqual("test-user", firstLine.Speaker);
+            Assert.AreEqual("This is a test", firstLine.Dialogue);
 
             _dialogueSystem.StepToNextDialogueLine();
 
             SpokenDialogueLine secondLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
-            Assert.AreEqual(secondLine.Speaker, "test-user");
-            Assert.AreEqual(secondLine.Dialogue, "This is also a test");
+            Assert.AreEqual("test-user", secondLine.Speaker);
+            Assert.AreEqual("This is also a test", secondLine.Dialogue);
 
         }
 
@@ -30,14 +30,14 @@ namespace _Project.Tests.EditMode
             DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTests");
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
-            Assert.AreEqual(firstLine.Speaker, "test-user");
-            Assert.AreEqual(firstLine.Dialogue, "This is a test");
+            Assert.AreEqual("test-user", firstLine.Speaker);
+            Assert.AreEqual("This is a test", firstLine.Dialogue);
 
             _dialogueSystem.StepToNextDialogueLine();
 
             SpokenDialogueLine secondLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
-            Assert.AreEqual(secondLine.Speaker, "test-user");
-            Assert.AreEqual(secondLine.Dialogue, "This is also a test");
+            Assert.AreEqual("test-user", secondLine.Speaker);
+            Assert.AreEqual("This is also a test", secondLine.Dialogue);
         }
 
         [Test]

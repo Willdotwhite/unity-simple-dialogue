@@ -17,8 +17,8 @@ namespace _Project.Tests.EditMode
             runner.SetCurrentRecord("single-file-test-id-1");
             SpokenDialogueLine line = (SpokenDialogueLine) runner.CurrentDialogueLine;
 
-            Assert.AreEqual(line.Speaker, "simple-test-user");
-            Assert.AreEqual(line.Dialogue, "This is a simple test");
+            Assert.AreEqual("simple-test-user", line.Speaker);
+            Assert.AreEqual("This is a simple test", line.Dialogue);
         }
 
         [Test]
@@ -30,19 +30,19 @@ namespace _Project.Tests.EditMode
             runner.SetCurrentRecord("options");
             OptionsDialogueLine line = (OptionsDialogueLine) runner.CurrentDialogueLine;
 
-            Assert.AreEqual(line.Speaker, "options-test-user");
-            Assert.AreEqual(line.Dialogue, "This is an options test");
-            Assert.AreEqual(line.Options.Count, 2);
+            Assert.AreEqual("options-test-user", line.Speaker);
+            Assert.AreEqual("This is an options test", line.Dialogue);
+            Assert.AreEqual(2, line.Options.Count);
 
             SpokenDialogueLine option1 = (SpokenDialogueLine) line.Options[0];
-            Assert.AreEqual(option1.Speaker, "options-test-user");
-            Assert.AreEqual(option1.Dialogue, "Options test option 1");
-            Assert.AreEqual(option1.Next, "options-next-1");
+            Assert.AreEqual("options-test-user", option1.Speaker);
+            Assert.AreEqual("Options test option 1", option1.Dialogue);
+            Assert.AreEqual("options-next-1", option1.Next);
 
             SpokenDialogueLine option2 = (SpokenDialogueLine) line.Options[1];
-            Assert.AreEqual(option2.Speaker, "options-test-user");
-            Assert.AreEqual(option2.Dialogue, "Options test option 2");
-            Assert.AreEqual(option2.Next, "options-next-2");
+            Assert.AreEqual("options-test-user", option2.Speaker);
+            Assert.AreEqual("Options test option 2", option2.Dialogue);
+            Assert.AreEqual("options-next-2", option2.Next);
         }
     }
 }

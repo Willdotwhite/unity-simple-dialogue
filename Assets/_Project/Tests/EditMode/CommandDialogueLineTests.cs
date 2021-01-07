@@ -30,7 +30,7 @@ namespace _Project.Tests.EditMode
 
             runner.SetCurrentRecord("command-line-test-id-1");
             SpokenDialogueLine preDialogueLine = (SpokenDialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual(preDialogueLine.Dialogue, "This is pre-command firing");
+            Assert.AreEqual("This is pre-command firing", preDialogueLine.Dialogue);
 
             // Line up command to run
             runner.StepToNextDialogueLine();
@@ -41,7 +41,7 @@ namespace _Project.Tests.EditMode
 
             runner.StepToNextDialogueLine();
             SpokenDialogueLine postDialogueLine = (SpokenDialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual(postDialogueLine.Dialogue, "This is post-command firing");
+            Assert.AreEqual("This is post-command firing", postDialogueLine.Dialogue);
             Assert.IsTrue(runner.CurrentRecord.IsAtEndOfRecord);
         }
 
@@ -71,8 +71,8 @@ namespace _Project.Tests.EditMode
             // Step over auto-running command to next line
             runner.StepToNextDialogueLine();
 
-            Assert.AreEqual(_params["key1"], "value1");
-            Assert.AreEqual(_params["key2"], "value2");
+            Assert.AreEqual("value1", _params["key1"]);
+            Assert.AreEqual("value2", _params["key2"]);
         }
 
         [Test]
@@ -132,12 +132,12 @@ namespace _Project.Tests.EditMode
             runner.StepToNextDialogueLine();
 
             // _test_command_1
-            Assert.AreEqual(_params["key1"], "value1");
-            Assert.AreEqual(_params["key2"], "value2");
+            Assert.AreEqual("value1", _params["key1"]);
+            Assert.AreEqual("value2", _params["key2"]);
 
             // _test_command_2
-            Assert.AreEqual(_params["key3"], "value3");
-            Assert.AreEqual(_params["key4"], "value4");
+            Assert.AreEqual("value3", _params["key3"]);
+            Assert.AreEqual("value4", _params["key4"]);
         }
 
         [Test]

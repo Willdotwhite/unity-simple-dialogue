@@ -28,20 +28,20 @@ namespace _Project.Tests.EditMode
             DialogueRecord record = runner.CurrentRecord;
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) record.CurrentDialogueLine;
-            Assert.AreEqual(firstLine.Speaker, "test-user");
-            Assert.AreEqual(firstLine.Dialogue, "Hello Player");
+            Assert.AreEqual("test-user", firstLine.Speaker);
+            Assert.AreEqual("Hello Player", firstLine.Dialogue);
 
             record.StepToNextDialogueLine();
 
             SpokenDialogueLine secondLine = (SpokenDialogueLine) record.CurrentDialogueLine;
-            Assert.AreEqual(secondLine.Speaker, "test-user-2");
-            Assert.AreEqual(secondLine.Dialogue, "Hello Generic Party Member");
+            Assert.AreEqual("test-user-2", secondLine.Speaker);
+            Assert.AreEqual("Hello Generic Party Member", secondLine.Dialogue);
 
             record.StepToNextDialogueLine();
 
             SpokenDialogueLine thirdLine = (SpokenDialogueLine) record.CurrentDialogueLine;
-            Assert.AreEqual(thirdLine.Speaker, "test-user");
-            Assert.AreEqual(thirdLine.Dialogue, "Test dialogue line 3");
+            Assert.AreEqual("test-user", thirdLine.Speaker);
+            Assert.AreEqual("Test dialogue line 3", thirdLine.Dialogue);
         }
 
         [Test]
@@ -63,9 +63,9 @@ namespace _Project.Tests.EditMode
             DialogueRecord record = runner.CurrentRecord;
 
             SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
-            Assert.AreEqual(line.Speaker, "test-user");
-            Assert.AreEqual(line.Dialogue, "Hello test user");
-            Assert.AreEqual(line.Next, "go-to-next-location-from-test");
+            Assert.AreEqual("test-user", line.Speaker);
+            Assert.AreEqual("Hello test user", line.Dialogue);
+            Assert.AreEqual("go-to-next-location-from-test", line.Next);
         }
 
     }
