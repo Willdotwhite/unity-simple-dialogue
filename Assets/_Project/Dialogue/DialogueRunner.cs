@@ -9,6 +9,13 @@ using UnityEngine.Assertions;
 
 namespace _Project.Dialogue
 {
+    /// <summary>
+    /// The DialogueRunner is the main engine of the DialogueSystem
+    /// <para>
+    /// The DialogueRunner class steps through each line of dialogue, running commands, and moving to the next
+    /// DialogueRecord when it hits a Next field
+    /// </para>
+    /// </summary>
     public class DialogueRunner
     {
         /// <summary>
@@ -74,8 +81,11 @@ namespace _Project.Dialogue
         /// Step to the next line of dialogue and return whether this was successful
         /// </summary>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
+        // TODO: Should there be a riskier "canJumpDirectToTargetDialogueLine" for more complex traversal?
         public bool StepToNextDialogueLine([CanBeNull] DialogueLine targetDialogueLine = null)
         {
+            // If there is no Next line to move to (either in CurrentRecord or from CurrentDialogueLine.Next,
+            // don't even bother trying trying to move forward into nothingness
             if (!_hasNextLine)
             {
                 return false;
@@ -118,7 +128,9 @@ namespace _Project.Dialogue
 
             string nextRecordId = CurrentDialogueLine.Next;
 
-            // If at end of current Record, get next Record
+            // If the CurrentDialogueLine is an OptionsDialogueLine then we can't just step forward;
+            // the player needs to make a choice, and we can't just guess where to go - Step() shouldn't be called
+            // without a targetDialogueLine in this instance
             if (CurrentDialogueLine is OptionsDialogueLine)
             {
                 if (targetDialogueLine == null)
@@ -127,9 +139,12 @@ namespace _Project.Dialogue
                     return false;
                 }
 
+                // TODO: Allow OptionsDialogueLine branches to contain smaller dialogueLine groups without requiring
+                // a Next line (i.e. a new DialogueRecord to jump to)
                 nextRecordId = targetDialogueLine.Next;
             }
 
+            // If we don't know where to go next, we've hit the end of our current dialogue
             if (nextRecordId == null)
             {
                 // Best handling practice here?
@@ -153,12 +168,18 @@ namespace _Project.Dialogue
             {
                 if (CurrentRecord.Commands == null)
                 {
-                    throw new ArgumentOutOfRangeException($"{CurrentRecord.id} has no commands set, but is trying to fire {commandDialogueLine.Command}. Did you forget to add your commands?");
+                    throw new ArgumentOutOfRangeException(
+                        $"{CurrentRecord.id} has no commands set, but is trying to fire " +
+                        $"{commandDialogueLine.Command}. Did you forget to add your commands?"
+                    );
                 }
 
                 if (!CurrentRecord.Commands.ContainsKey(commandDialogueLine.Command))
                 {
-                    throw new ArgumentOutOfRangeException($"{commandDialogueLine.Command} has not been defined in Command list for {CurrentRecord.id}");
+                    throw new ArgumentOutOfRangeException(
+                        $"{commandDialogueLine.Command} has not been defined in Command" +
+                        $" list for {CurrentRecord.id}"
+                    );
                 }
 
                 // Invoke Command with Parameters

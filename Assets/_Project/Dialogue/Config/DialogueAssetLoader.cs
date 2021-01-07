@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using _Project.Dialogue.Lines;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace _Project.Dialogue.Config
 {
+    /// <summary>
+    /// This class loads the JSON files as TextAssets from disc
+    /// </summary>
     public class DialogueAssetLoader
     {
         public Dictionary<string, DialogueRecord> Records { get; } = new Dictionary<string, DialogueRecord>();
@@ -22,16 +26,8 @@ namespace _Project.Dialogue.Config
             foreach (TextAsset asset in textAssets)
             {
                 DialogueFileConfig fileConfig = JsonConvert.DeserializeObject<DialogueFileConfig>(asset.ToString());
-
-                List<DialogueLine> lines = new List<DialogueLine>();
-                foreach (DialogueLineConfig line in fileConfig.dialogueLines)
-                {
-                    lines.Add(DialogueLineFactory.FromConfig(line));
-                }
-
-                DialogueRecord record = new DialogueRecord();
-                record.id = fileConfig.id;
-                record.dialogueLines = lines;
+                List<DialogueLine> lines = fileConfig.dialogueLines.Select(DialogueLineFactory.FromConfig).ToList();
+                DialogueRecord record = new DialogueRecord {id = fileConfig.id, dialogueLines = lines};
 
                 Records.Add(record.id, record);
             }

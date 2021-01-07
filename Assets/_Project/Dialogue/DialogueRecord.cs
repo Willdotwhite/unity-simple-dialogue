@@ -11,7 +11,7 @@ namespace _Project.Dialogue
     /// along with the logical rules for how this chunk of a conversation/narrative can flow.
     ///
     /// <para>
-    /// Each JSON file will be represented as a single Record
+    /// Each JSON file will be represented as a single DialogueRecord
     /// </para>
     ///
     /// <para>

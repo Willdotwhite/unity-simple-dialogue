@@ -3,6 +3,20 @@ using _Project.Dialogue.Lines;
 
 namespace _Project.Dialogue
 {
+    /// <summary>
+    /// DialogueParser is an optional extension class that allows you to change the dialogue stored on disk into
+    /// something else
+    /// <para>
+    /// This is designed for easy use of variables or placeholders to be replaced when the dialogue is loaded - e.g.
+    /// {"speaker": "npc::town::cleric_2"} or {"dialogue": "Welcome to _TOWN_NAME"} instead of remembering a
+    /// specific character or place name
+    /// </para>
+    /// <para>
+    /// This isn't required for the system to run, but it allows you to write your dialogue in whatever way works best
+    /// for you; I personally never like using explicit names like {"speaker": "Jeremy"} in code in case the name changes
+    /// later on.
+    /// </para>
+    /// </summary>
     public class DialogueParser
     {
         private readonly Dictionary<string, string> replacements;
@@ -20,6 +34,10 @@ namespace _Project.Dialogue
             this.canReplaceMetaFields = canReplaceMetaFields;
         }
 
+        /// <summary>
+        /// Replace all given string patterns to their appropriate replacements
+        /// </summary>
+        /// <param name="records"></param>
         public void Parse(Dictionary<string, DialogueRecord> records)
         {
             foreach (DialogueRecord record in records.Values)

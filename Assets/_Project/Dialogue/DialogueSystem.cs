@@ -7,6 +7,19 @@ using JetBrains.Annotations;
 
 namespace _Project.Dialogue
 {
+    /// <summary>
+    /// DialogueSystem is the top level class for this system
+    /// <para>
+    /// Unless you need some functionality that isn't possible from this class, you should only ever need to use
+    /// this class and the public properties/methods is exposes
+    /// </para>
+    /// <para>
+    /// This design is quite common and is intended to hide away complexity from the user of an API (the developer, not
+    /// the player) - if I make a massive change to the system in future, nothing will break for users who are just
+    /// using this class as long as the public parts like CurrentDialogueLine still exist and return the same type
+    /// of objects
+    /// </para>
+    /// </summary>
     public class DialogueSystem
     {
         /// <inheritdoc cref="DialogueRunner.CurrentDialogueLine" />
@@ -33,6 +46,12 @@ namespace _Project.Dialogue
             SetStartingRecord(startingRecordId, assetLoader);
         }
 
+        /// <summary>
+        /// Try to set the initial DialogueRecord for the starting state of the system
+        /// </summary>
+        /// <param name="startingRecordId"></param>
+        /// <param name="assetLoader"></param>
+        /// <exception cref="ArgumentException"></exception>
         private void SetStartingRecord(string startingRecordId, DialogueAssetLoader assetLoader)
         {
             // Set record if explicitly stated
