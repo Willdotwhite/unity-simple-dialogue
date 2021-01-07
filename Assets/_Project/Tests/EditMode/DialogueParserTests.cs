@@ -43,5 +43,30 @@ namespace _Project.Tests.EditMode
             Assert.AreEqual(thirdLine.Speaker, "test-user");
             Assert.AreEqual(thirdLine.Dialogue, "Test dialogue line 3");
         }
+
+        [Test]
+        public void DialogueParserMetaReplacements()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("ParserTest/");
+
+            Dictionary<string, string> substitutions = new Dictionary<string, string>
+            {
+                {"_NEXT_", "next-location-from-test"},
+            };
+
+            DialogueParser parser = new DialogueParser(substitutions, true);
+            DialogueRunner runner = new DialogueRunner(loader.Records, parser);
+
+            runner.SetCurrentRecord("parser-meta");
+
+            /* Test current record is loaded as expected */
+            DialogueRecord record = runner.CurrentRecord;
+
+            SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
+            Assert.AreEqual(line.Speaker, "test-user");
+            Assert.AreEqual(line.Dialogue, "Hello test user");
+            Assert.AreEqual(line.Next, "go-to-next-location-from-test");
+        }
+
     }
 }

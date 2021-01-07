@@ -44,6 +44,7 @@ namespace _Project.Dialogue
             {
                 foreach (DialogueLine dialogueLine in record.dialogueLines)
                 {
+                    // TODO: Should this be possible? Would we ever want this?
                     // Continue for this loop to avoid CastException
                     if (dialogueLine is CommandDialogueLine)
                     {
@@ -56,9 +57,15 @@ namespace _Project.Dialogue
                         line.Speaker = line.Speaker.Replace(keyValuePair.Key, keyValuePair.Value);
                         line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
 
+                        // Try to sub out meta field values _if they exist_
+                        // Remember that this is happening over all Records on load; only one file might have the Next
+                        // to be parsed, and every other file doesn't need parsing
                         if (canReplaceMetaFields)
                         {
-                            line.Next = line.Next.Replace(keyValuePair.Key, keyValuePair.Value);
+                            if (line.Next != null)
+                            {
+                                line.Next = line.Next.Replace(keyValuePair.Key, keyValuePair.Value);
+                            }
                         }
                     }
                 }

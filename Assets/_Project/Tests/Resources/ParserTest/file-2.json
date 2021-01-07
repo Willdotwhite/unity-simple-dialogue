@@ -1,0 +1,10 @@
+﻿{
+  "id": "parser-meta",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "Hello test user",
+      "next": "go-to-_NEXT_"
+    }
+  ]
+}

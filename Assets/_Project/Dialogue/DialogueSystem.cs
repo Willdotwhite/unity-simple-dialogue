@@ -35,7 +35,7 @@ namespace _Project.Dialogue
 
         public DialogueSystem(
             string filepath,
-            [CanBeNull] string startingRecordId,
+            [CanBeNull] string startingRecordId = null,
             [CanBeNull] DialogueParser parser = null,
             [CanBeNull] Dictionary<string, Action<CommandParameters>> commands = null
         )

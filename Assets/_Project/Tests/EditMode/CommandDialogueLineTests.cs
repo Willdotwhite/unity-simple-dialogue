@@ -139,5 +139,25 @@ namespace _Project.Tests.EditMode
             Assert.AreEqual(_params["key3"], "value3");
             Assert.AreEqual(_params["key4"], "value4");
         }
+
+        [Test]
+        public void DialogueRunnerThrowsExceptionWhenRecordHasNoCommandsSet()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
+            DialogueRunner runner = new DialogueRunner(loader.Records, null, null);
+
+            runner.SetCurrentRecord("command-line-test-id-3");
+            Assert.Throws<ArgumentOutOfRangeException>(() => runner.StepToNextDialogueLine());
+        }
+
+        [Test]
+        public void DialogueRunnerThrowsExceptionWhenRecordDoesNotHaveIntendedCommandSet()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
+            DialogueRunner runner = new DialogueRunner(loader.Records, null, new Dictionary<string, Action<CommandParameters>>());
+
+            runner.SetCurrentRecord("command-line-test-id-3");
+            Assert.Throws<ArgumentOutOfRangeException>(() => runner.StepToNextDialogueLine());
+        }
     }
 }

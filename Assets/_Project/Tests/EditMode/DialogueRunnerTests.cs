@@ -26,6 +26,34 @@ namespace _Project.Tests.EditMode
         }
 
         [Test]
+        public void DialogueStepsThroughChosenDialogueLineInOption()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("Options/");
+            DialogueRunner runner = new DialogueRunner(loader.Records);
+
+            runner.SetCurrentRecord("options-runner-test");
+            OptionsDialogueLine currentOptionsDialogueLine = (OptionsDialogueLine) runner.CurrentDialogueLine;
+            DialogueLine targetLine = currentOptionsDialogueLine.Options[0];
+            runner.StepToNextDialogueLine(targetLine);
+            Assert.AreEqual(runner.CurrentRecord.id, "options-next-1");
+        }
+
+
+        [Test]
+        public void DialogueReportsMissingTargetLineIfRequired()
+        {
+            DialogueAssetLoader loader = new DialogueAssetLoader("Options/");
+            DialogueRunner runner = new DialogueRunner(loader.Records);
+
+            runner.SetCurrentRecord("options-runner-test");
+
+            bool success = runner.StepToNextDialogueLine();
+
+            // TODO: How to handle logging output?
+            Assert.AreEqual(success, false);
+        }
+
+        [Test]
         public void DialogueTraversesAllRelatedFiles()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");

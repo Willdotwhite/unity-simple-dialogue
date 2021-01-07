@@ -1,0 +1,8 @@
+﻿{
+  "id": "parser-command",
+  "dialogueLines": [
+    {
+      "command": "_test_command"
+    }
+  ]
+}

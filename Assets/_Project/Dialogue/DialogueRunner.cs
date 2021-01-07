@@ -50,6 +50,8 @@ namespace _Project.Dialogue
         )
         {
             Records = records;
+
+            // TODO: This should probably be foreach(Records): parser?.Parse(record)
             parser?.Parse(Records);
             _commands = commands;
         }

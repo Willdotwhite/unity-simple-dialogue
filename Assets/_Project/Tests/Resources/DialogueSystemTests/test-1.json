@@ -1,0 +1,13 @@
+﻿{
+  "id": "example-conversation-1",
+  "dialogueLines": [
+    {
+      "speaker": "test-user",
+      "dialogue": "This is a test"
+    },
+    {
+      "speaker": "test-user",
+      "dialogue": "This is also a test"
+    }
+  ]
+}
