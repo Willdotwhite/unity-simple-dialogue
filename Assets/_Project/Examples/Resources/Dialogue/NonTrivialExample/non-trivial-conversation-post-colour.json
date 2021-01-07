@@ -7,10 +7,6 @@
     },
     {
       "speaker": "npc::dev",
-      "dialogue": "One more thing - you started this dialogue with me at __TIME__"
-    },
-    {
-      "speaker": "npc::dev",
       "dialogue": "I hope shows the flexibility of this tool"
     },
     {

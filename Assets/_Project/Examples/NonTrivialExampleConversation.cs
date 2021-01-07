@@ -16,7 +16,7 @@ namespace _Project.Examples
 
         [SerializeField] private GameObject _redButton, _greenButton, _blueButton, _nextButton;
 
-        private bool _colourButtonsAreActive = false;
+        private bool _colourButtonsAreActive;
 
         private void Awake()
         {
@@ -26,28 +26,11 @@ namespace _Project.Examples
         // Start is called before the first frame update
         private void Start()
         {
-            Dictionary<string, Action<CommandParameters>> dialogueActions = new Dictionary<string, Action<CommandParameters>>();
-            dialogueActions.Add("_toggle_colour_buttons", _ =>
-            {
-                _colourButtonsAreActive = !_colourButtonsAreActive;
-
-                ToggleColourButtons(_colourButtonsAreActive);
-                _nextButton.SetActive(!_colourButtonsAreActive);
-            });
-            dialogueActions.Add("_background_colour_change", _params =>
-            {
-                float r = (int)_params["r"] / 255.0f;
-                float g = (int) _params["g"] / 255.0f;
-                float b = (int) _params["b"] / 255.0f;
-
-                Camera.main.backgroundColor = new Color(r, g, b);
-            });
-
             _dialogueSystem = new DialogueSystem(
-                "Dialogue",
+                "Dialogue/NonTrivialExample",
                 "non-trivial-conversation::start",
-                null,
-                dialogueActions
+                BuildDialogueParser(),
+                BuildDialogueActions()
             );
 
             UpdateDialogueLine(_dialogueSystem.CurrentDialogueLine);
@@ -63,9 +46,10 @@ namespace _Project.Examples
 
         public void OnColourChosen(string colour)
         {
+            // Each button passes a string of either 'red' 'green' or 'blue'
             string nextDialogueBranch = $"non-trivial-conversation::colour-option::{colour}";
-            // TODO: How was I going to choose which option to go down?
-            // How do I set an option.next as the next target?
+
+            // Move to the chosen Option DialogueLine
             OptionsDialogueLine currentOptionDialogueLine = (OptionsDialogueLine) _dialogueSystem.CurrentDialogueLine;
             DialogueLine chosenOption = currentOptionDialogueLine.GetOptionByNext(nextDialogueBranch);
 
@@ -80,11 +64,47 @@ namespace _Project.Examples
 
             if (line is OptionsDialogueLine optionsDialogueLine)
             {
-                // This ID lookup for Options[0], Options[1] etc. isn't ideal - this will be getting changed soon
                 _redButton.GetComponentInChildren<Text>().text = optionsDialogueLine.Options[0].Dialogue;
                 _greenButton.GetComponentInChildren<Text>().text = optionsDialogueLine.Options[1].Dialogue;
                 _blueButton.GetComponentInChildren<Text>().text = optionsDialogueLine.Options[2].Dialogue;
             }
+        }
+
+        private DialogueParser BuildDialogueParser()
+        {
+            Dictionary<string, string> replacements = new Dictionary<string, string>();
+            replacements.Add("npc::dev", "Dotwo");
+
+            return new DialogueParser(replacements);
+        }
+
+        private Dictionary<string, Action<CommandParameters>> BuildDialogueActions()
+        {
+            Dictionary<string, Action<CommandParameters>> dialogueActions =
+                new Dictionary<string, Action<CommandParameters>>
+                {
+                    {
+                        "_toggle_colour_buttons", _ =>
+                        {
+                            _colourButtonsAreActive = !_colourButtonsAreActive;
+
+                            ToggleColourButtons(_colourButtonsAreActive);
+                            _nextButton.SetActive(!_colourButtonsAreActive);
+                        }
+                    },
+                    {
+                        "_background_colour_change", _params =>
+                        {
+                            float r = (int) _params["r"] / 255.0f;
+                            float g = (int) _params["g"] / 255.0f;
+                            float b = (int) _params["b"] / 255.0f;
+
+                            Camera.main.backgroundColor = new Color(r, g, b);
+                        }
+                    }
+                };
+
+            return dialogueActions;
         }
 
         private void ToggleColourButtons(bool isVisible)

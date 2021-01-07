@@ -7,9 +7,17 @@ namespace _Project.Dialogue
     {
         private readonly Dictionary<string, string> replacements;
 
-        public DialogueParser(Dictionary<string, string> replacements)
+        private readonly bool canReplaceMetaFields;
+
+        /// <summary>
+        /// A find-and-replace parser for DialogueLine variable values
+        /// </summary>
+        /// <param name="replacements">Dictionary of key-value pair replacements</param>
+        /// <param name="canReplaceMetaFields">Can this parser change the meta fields like Next? By default, a Parser only changes Speaker and Dialogue</param>
+        public DialogueParser(Dictionary<string, string> replacements, bool canReplaceMetaFields = false)
         {
             this.replacements = replacements;
+            this.canReplaceMetaFields = canReplaceMetaFields;
         }
 
         public void Parse(Dictionary<string, DialogueRecord> records)
@@ -18,17 +26,22 @@ namespace _Project.Dialogue
             {
                 foreach (DialogueLine dialogueLine in record.dialogueLines)
                 {
-                    // Return early to avoid CastException
+                    // Continue for this loop to avoid CastException
                     if (dialogueLine is CommandDialogueLine)
                     {
-                        return;
+                        continue;
                     }
 
                     SpokenDialogueLine line = (SpokenDialogueLine) dialogueLine;
                     foreach (KeyValuePair<string,string> keyValuePair in replacements)
                     {
-                        // TODO: Should this include speaker etc?
+                        line.Speaker = line.Speaker.Replace(keyValuePair.Key, keyValuePair.Value);
                         line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
+
+                        if (canReplaceMetaFields)
+                        {
+                            line.Next = line.Next.Replace(keyValuePair.Key, keyValuePair.Value);
+                        }
                     }
                 }
             }

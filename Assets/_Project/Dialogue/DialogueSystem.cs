@@ -30,6 +30,11 @@ namespace _Project.Dialogue
             DialogueAssetLoader assetLoader = new DialogueAssetLoader(filepath);
             _dialogueRunner = new DialogueRunner(assetLoader.Records, parser, commands);
 
+            SetStartingRecord(startingRecordId, assetLoader);
+        }
+
+        private void SetStartingRecord(string startingRecordId, DialogueAssetLoader assetLoader)
+        {
             // Set record if explicitly stated
             if (startingRecordId != null)
             {
