@@ -4,6 +4,7 @@ using _Project.Dialogue;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _Project.Examples
@@ -34,9 +35,22 @@ namespace _Project.Examples
             );
 
             UpdateDialogueLine(_dialogueSystem.CurrentDialogueLine);
+
+            // Dirty hack to wire up the Next Button without needing one per Conversation
+            _nextButton = GameObject.Find("Next Button");
+            _nextButton.GetComponent<Button>().onClick.AddListener(OnNextDialogueLine);
         }
 
-        public void OnNextDialogueLine()
+        private void Update()
+        {
+            // Reload on spacebar for ease of testing/review
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+
+        private void OnNextDialogueLine()
         {
             if (_dialogueSystem.StepToNextDialogueLine())
             {

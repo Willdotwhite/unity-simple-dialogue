@@ -5,21 +5,27 @@ using UnityEngine.UI;
 
 namespace _Project.Examples
 {
-    public class ExampleConversation : MonoBehaviour
+    public class SimpleExampleConversation : MonoBehaviour
     {
         private DialogueSystem _dialogueSystem;
 
         [SerializeField] private Text _text;
 
+        private GameObject _nextButton;
+
         // Start is called before the first frame update
         private void Start()
         {
-            _dialogueSystem = new DialogueSystem("Dialogue", "example-conversation-1");
+            _dialogueSystem = new DialogueSystem("Dialogue/SimpleExample", "example-conversation-1");
 
             UpdateDialogueLine(_dialogueSystem.CurrentDialogueLine);
+
+            // Dirty hack to wire up the Next Button without needing one per Conversation
+            _nextButton = GameObject.Find("Next Button");
+            _nextButton.GetComponent<Button>().onClick.AddListener(OnNextDialogueLine);
         }
 
-        public void OnNextDialogueLine()
+        private void OnNextDialogueLine()
         {
             if (_dialogueSystem.StepToNextDialogueLine())
             {

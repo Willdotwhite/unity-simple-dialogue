@@ -11,6 +11,10 @@
     },
     {
       "speaker": "npc::dev",
+      "dialogue": "Press the spacebar to reload this scene if you want to check the other paths"
+    },
+    {
+      "speaker": "npc::dev",
       "dialogue": "Thanks!"
     }
   ]
