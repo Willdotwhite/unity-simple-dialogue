@@ -36,11 +36,10 @@ namespace _Project.Examples
             });
             dialogueActions.Add("_background_colour_change", _params =>
             {
-                float r = (int)_params["r"];
-                float g = (int) _params["g"];
-                float b = (int) _params["b"];
+                float r = (int)_params["r"] / 255.0f;
+                float g = (int) _params["g"] / 255.0f;
+                float b = (int) _params["b"] / 255.0f;
 
-                // TODO: Make this work
                 Camera.main.backgroundColor = new Color(r, g, b);
             });
 

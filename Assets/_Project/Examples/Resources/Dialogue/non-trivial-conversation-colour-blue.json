@@ -5,16 +5,16 @@
       "command": "_toggle_colour_buttons"
     },
     {
-      "speaker": "npc::dev",
-      "dialogue": "Correct answer! Blue is a strong option..."
-    },
-    {
       "command": "_background_colour_change",
       "params": {
         "r": 0,
         "g": 0,
         "b": 200
       }
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Correct answer! Blue is a strong option..."
     },
     {
       "speaker": "npc::dev",

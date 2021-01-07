@@ -5,16 +5,16 @@
       "command": "_toggle_colour_buttons"
     },
     {
-      "speaker": "npc::dev",
-      "dialogue": "Was Bulbasaur your favourite Pokemon too?"
-    },
-    {
       "command": "_background_colour_change",
       "params": {
-        "r": 0,
-        "g": 220,
-        "b": 0
+        "r": 45,
+        "g": 118,
+        "b": 45
       }
+    },
+    {
+      "speaker": "npc::dev",
+      "dialogue": "Was Bulbasaur your favourite Pokemon too?"
     },
     {
       "speaker": "npc::dev",
