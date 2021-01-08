@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using JetBrains.Annotations;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace _Project.Dialogue
 {
@@ -52,8 +49,11 @@ namespace _Project.Dialogue
         {
             Records = DialogueRecordBuilder.Build(records);
 
-            // TODO: This should probably be foreach(Records): parser?.Parse(record)
-            parser?.Parse(Records);
+            foreach (DialogueRecord record in records.Values)
+            {
+                parser?.Parse(record);
+            }
+
             _commands = commands;
         }
 

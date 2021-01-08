@@ -53,7 +53,6 @@ namespace _Project.Dialogue
         /// </summary>
         /// <param name="lines"></param>
         /// <param name="record"></param>
-        /// <param name="branchIdx"></param>
         private void BuildRuntimeDialogueRecords(IEnumerable<DialogueLine> lines, DialogueRecord record)
         {
             foreach (OptionsDialogueLine line in lines.OfType<OptionsDialogueLine>())
@@ -67,7 +66,6 @@ namespace _Project.Dialogue
         /// </summary>
         /// <param name="line"></param>
         /// <param name="record"></param>
-        /// <param name="branchIdx"></param>
         private void GenerateInlineDialogueBranchRecords(OptionsDialogueLine line, DialogueRecord record)
         {
             foreach (OptionBranchDialogueLine option in line.Options.OfType<OptionBranchDialogueLine>())

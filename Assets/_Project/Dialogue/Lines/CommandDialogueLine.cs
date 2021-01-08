@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using _Project.Dialogue.Config;
 
 namespace _Project.Dialogue.Lines

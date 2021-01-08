@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 
@@ -38,7 +37,7 @@ namespace _Project.Dialogue
         /// <summary>
         /// Array index of the current line of dialogue
         /// </summary>
-        private int currentLineId = 0;
+        private int currentLineId;
 
         /// <summary>
         /// Current DialogueLine

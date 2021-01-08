@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Project.Dialogue.Lines;
 
 namespace _Project.Dialogue
@@ -36,38 +37,41 @@ namespace _Project.Dialogue
 
         /// <summary>
         /// Replace all given string patterns to their appropriate replacements
+        /// <para>
+        /// CommandDialogueLines are ignored by Parsing
+        /// </para>
         /// </summary>
-        /// <param name="records"></param>
-        public void Parse(Dictionary<string, DialogueRecord> records)
+        /// <param name="record"></param>
+        public void Parse(DialogueRecord record)
         {
-            foreach (DialogueRecord record in records.Values)
+            foreach (DialogueLine dialogueLine in record.dialogueLines.Where(dialogueLine => !(dialogueLine is CommandDialogueLine)))
             {
-                foreach (DialogueLine dialogueLine in record.dialogueLines)
+                ParseSpokenDialogueLine((SpokenDialogueLine) dialogueLine);
+            }
+        }
+
+        /// <summary>
+        /// Parse a SpokenDialogueLine
+        /// </summary>
+        /// <param name="line"></param>
+        private void ParseSpokenDialogueLine(SpokenDialogueLine line)
+        {
+            foreach (KeyValuePair<string, string> keyValuePair in replacements)
+            {
+                line.Speaker = line.Speaker.Replace(keyValuePair.Key, keyValuePair.Value);
+                line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
+
+                // Try to sub out meta field values _if they exist_
+                // Remember that this is happening over all Records on load; only one file might have the Next
+                // to be parsed, and every other file doesn't need parsing
+                if (!canReplaceMetaFields)
                 {
-                    // TODO: Should this be possible? Would we ever want this?
-                    // Continue for this loop to avoid CastException
-                    if (dialogueLine is CommandDialogueLine)
-                    {
-                        continue;
-                    }
+                    continue;
+                }
 
-                    SpokenDialogueLine line = (SpokenDialogueLine) dialogueLine;
-                    foreach (KeyValuePair<string,string> keyValuePair in replacements)
-                    {
-                        line.Speaker = line.Speaker.Replace(keyValuePair.Key, keyValuePair.Value);
-                        line.Dialogue = line.Dialogue.Replace(keyValuePair.Key, keyValuePair.Value);
-
-                        // Try to sub out meta field values _if they exist_
-                        // Remember that this is happening over all Records on load; only one file might have the Next
-                        // to be parsed, and every other file doesn't need parsing
-                        if (canReplaceMetaFields)
-                        {
-                            if (line.Next != null)
-                            {
-                                line.Next = line.Next.Replace(keyValuePair.Key, keyValuePair.Value);
-                            }
-                        }
-                    }
+                if (line.Next != null)
+                {
+                    line.Next = line.Next.Replace(keyValuePair.Key, keyValuePair.Value);
                 }
             }
         }

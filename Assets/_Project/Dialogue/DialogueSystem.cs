@@ -62,14 +62,13 @@ namespace _Project.Dialogue
             }
 
             // If we're being left to work out what record is desired, and there's only one option, set that
-            if (assetLoader.Records.Count == 1)
+            if (assetLoader.Records.Count > 1)
             {
-                DialogueRecord onlyRecord = assetLoader.Records.First().Value;
-                _dialogueRunner.SetCurrentRecord(onlyRecord.id);
-                return;
+                throw new ArgumentException("startingRecordId parameter is required, can't resolve automatically!");
             }
 
-            throw new ArgumentException("startingRecordId parameter is required, can't resolve automatically!");
+            DialogueRecord onlyRecord = assetLoader.Records.First().Value;
+            _dialogueRunner.SetCurrentRecord(onlyRecord.id);
         }
     }
 }

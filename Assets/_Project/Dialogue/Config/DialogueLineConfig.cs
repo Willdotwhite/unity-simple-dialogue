@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+// ReSharper disable UnassignedField.Global    - All fields in this file are assigned during deserialization
+
 namespace _Project.Dialogue.Config
 {
     /// <summary>
@@ -10,6 +12,7 @@ namespace _Project.Dialogue.Config
     /// be empty defaults like null)
     /// </para>
     /// </summary>
+    // ReSharper disable once ClassNeverInstantiated.Global    - Class is instantiated at JSON deserialization
     public class DialogueLineConfig {
         public string speaker;
         public string dialogue;
