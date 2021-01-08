@@ -10,7 +10,7 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueSystemCanBeInstantiatedWithMinimalParams()
         {
-            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTests", "example-conversation-1");
+            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTest/", "example-conversation-1");
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
             Assert.AreEqual("test-user", firstLine.Speaker);
@@ -27,7 +27,7 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueSystemCanBeInstantiatedAndWorkOutStartingRecord()
         {
-            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTests");
+            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTest/");
 
             SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
             Assert.AreEqual("test-user", firstLine.Speaker);
@@ -44,7 +44,7 @@ namespace _Project.Tests.EditMode
         public void DialogueSystemInformsUserIfItCannotGetStartingRecord()
         {
             // Safe bet for a folder with multiple files, for the short term
-            Assert.Throws<ArgumentException>(() => new DialogueSystem("LoopingConversationTest"));
+            Assert.Throws<ArgumentException>(() => new DialogueSystem("AssetLoaderTest"));
         }
     }
 }

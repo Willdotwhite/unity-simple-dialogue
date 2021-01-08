@@ -1,6 +1,7 @@
 ﻿using _Project.Dialogue;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
+using _Project.Tests.EditMode.Mocks;
 using NUnit.Framework;
 
 namespace _Project.Tests.EditMode
@@ -10,27 +11,24 @@ namespace _Project.Tests.EditMode
         [Test]
         public void OptionsDialogueLineCanLookUpOptionByUniqueId()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("DialogueLineFormatTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
-
-            runner.SetCurrentRecord("options");
+            DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption(null, 0);
             OptionsDialogueLine line = (OptionsDialogueLine) runner.CurrentDialogueLine;
 
-            SpokenDialogueLine option1 = line.GetOptionByNext("options-next-1");
-            Assert.AreEqual("options-test-user", option1.Speaker);
-            Assert.AreEqual("Options test option 1", option1.Dialogue);
-            Assert.AreEqual("options-next-1", option1.Next);
+            SpokenDialogueLine option1 = line.GetOptionByNext("next-option-branch-1");
+            Assert.AreEqual("speaker-1", option1.Speaker);
+            Assert.AreEqual("Test line - option - branch 1", option1.Dialogue);
+            Assert.AreEqual("next-option-branch-1", option1.Next);
 
-            SpokenDialogueLine option2 = line.GetOptionByNext("options-next-2");
-            Assert.AreEqual("options-test-user", option2.Speaker);
-            Assert.AreEqual("Options test option 2", option2.Dialogue);
-            Assert.AreEqual("options-next-2", option2.Next);
+            SpokenDialogueLine option2 = line.GetOptionByNext("next-option-branch-2");
+            Assert.AreEqual("speaker-2", option2.Speaker);
+            Assert.AreEqual("Test line - option - branch 2", option2.Dialogue);
+            Assert.AreEqual("next-option-branch-2", option2.Next);
         }
 
         [Test]
         public void OptionsDialogueLineCanTraverseInlineBranches()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("BranchingOptionsTest/");
+            DialogueAssetLoader loader = new DialogueAssetLoader("OptionsDialogueLineTest/");
             DialogueRunner runner = new DialogueRunner(loader.Records);
 
             runner.SetCurrentRecord("branching-options");
@@ -69,7 +67,7 @@ namespace _Project.Tests.EditMode
         [Test]
         public void OptionsDialogueLineCanTraverseNestedInlineBranches()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("BranchingOptionsTest/");
+            DialogueAssetLoader loader = new DialogueAssetLoader("OptionsDialogueLineTest/");
             DialogueRunner runner = new DialogueRunner(loader.Records);
 
             runner.SetCurrentRecord("nested-branching-options");

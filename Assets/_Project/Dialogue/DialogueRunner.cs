@@ -142,6 +142,12 @@ namespace _Project.Dialogue
                     return false;
                 }
 
+                if (targetDialogueLine.Next == null)
+                {
+                    Debug.LogWarning("DialogueRunner cannot step to an OptionsDialogueLine option unless it has a Next field!");
+                    return false;
+                }
+
                 // a Next line (i.e. a new DialogueRecord to jump to)
                 nextRecordId = targetDialogueLine.Next;
             }

@@ -11,7 +11,7 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueAssetSimplePasses()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("SingleFileTest/");
+            DialogueAssetLoader loader = new DialogueAssetLoader("AssetLoaderTest/Single/");
             Assert.NotZero(loader.Records.Count);
 
             DialogueRecord record = loader.Records["single-file-test-id-1"];
@@ -26,8 +26,11 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueAssetLoadsAllRelatedFiles()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
-            Assert.AreEqual(2, loader.Records.Count);
+            DialogueAssetLoader loaderWithoutTrailingSlash = new DialogueAssetLoader("AssetLoaderTest/Multiple");
+            Assert.AreEqual(2, loaderWithoutTrailingSlash.Records.Count);
+
+            DialogueAssetLoader loaderWithTrailingSlash = new DialogueAssetLoader("AssetLoaderTest/Multiple/");
+            Assert.AreEqual(2, loaderWithTrailingSlash.Records.Count);
         }
 
         [Test]

@@ -2,6 +2,7 @@
 using _Project.Dialogue;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
+using _Project.Tests.EditMode.Mocks;
 using NUnit.Framework;
 
 namespace _Project.Tests.EditMode
@@ -9,43 +10,113 @@ namespace _Project.Tests.EditMode
     public class DialogueRunnerTests
     {
         [Test]
-        public void DialogueStepsThroughAllLinesInRecord()
+        public void DialogueRunnerStepsThroughAllLinesInRecord()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("MultiLineDialogueTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
+            DialogueRunner runner = DialogueRunnerMocks.GetSimple();
 
-            runner.SetCurrentRecord("multi-file-test-id-1");
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 DialogueRecord record = runner.CurrentRecord;
                 SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
 
-                Assert.AreEqual($"Test dialogue line {i}", line.Dialogue);
+                Assert.AreEqual($"speaker-{i}", line.Speaker);
+                Assert.AreEqual($"Test line {i}", line.Dialogue);
                 runner.StepToNextDialogueLine();
             }
         }
 
         [Test]
-        public void DialogueStepsThroughChosenDialogueLineInOption()
+        public void DialogueRunnerWalksToNextRecordOnNext()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("Options/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
 
-            runner.SetCurrentRecord("options-runner-test");
-            OptionsDialogueLine currentOptionsDialogueLine = (OptionsDialogueLine) runner.CurrentDialogueLine;
-            DialogueLine targetLine = currentOptionsDialogueLine.Options[0];
-            runner.StepToNextDialogueLine(targetLine);
-            Assert.AreEqual("options-next-1", runner.CurrentRecord.id);
+            const string startId = "multi-record-start";
+            const string endId = "multi-record-end";
+            DialogueRunner runner = DialogueRunnerMocks.GetMultiRecordByNext(new List<string> {startId, endId});
+
+            foreach (string id in new[] {startId, endId}) {
+                for (int i = 1; i <= 3; i++)
+                {
+                    DialogueRecord record = runner.CurrentRecord;
+                    Assert.AreEqual(id, record.id);
+
+                    // Assert the public Property of an internal int:idx field is reset
+                    if (i == 1)
+                    {
+                        Assert.False(record.IsAtEndOfRecord);
+                    }
+
+                    SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
+                    Assert.AreEqual($"speaker-{i}", line.Speaker);
+                    Assert.AreEqual($"Test line {i}", line.Dialogue);
+                    runner.StepToNextDialogueLine();
+                }
+            }
         }
 
+        [Test]
+        public void DialogueRunnerStepsThroughChosenDialogueLineInOption()
+        {
+            const string startId = "option-record-start";
+            DialogueRecord startRecord = SimpleDialogueMocks.GetSimpleOption(startId, 4);
+
+            const string endId = "options-record-end";
+            DialogueRecord endRecord = SimpleDialogueMocks.GetSimple(endId, 5);
+
+            // Wire up startRecord to endRecord
+            ((OptionsDialogueLine) startRecord.dialogueLines[startRecord.dialogueLines.Count - 1]).Options[0].Next = endId;
+
+            Dictionary<string, DialogueRecord> records = new Dictionary<string, DialogueRecord>
+            {
+                {startId, startRecord},
+                {endId, endRecord}
+            };
+            DialogueRunner runner = new DialogueRunner(records);
+            runner.SetCurrentRecord(startId);
+
+            foreach (string id in new[] {startId, endId}) {
+                for (int i = 1; i <= 5; i++)
+                {
+                    DialogueRecord record = runner.CurrentRecord;
+                    Assert.AreEqual(id, record.id);
+
+                    // Assert the public Property of an internal int:idx field is reset
+                    if (i == 1)
+                    {
+                        Assert.False(record.IsAtEndOfRecord);
+                    }
+
+                    SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
+
+                    // Choose the option where it's relevant
+                    if (i == 5 && id == startId)
+                    {
+                        Assert.AreEqual($"speaker-option", line.Speaker);
+                        Assert.AreEqual($"Test line - option", line.Dialogue);
+
+                        OptionsDialogueLine option = (OptionsDialogueLine) record.CurrentDialogueLine;
+                        runner.StepToNextDialogueLine(option.Options[0]);
+                    }
+                    else
+                    {
+                        Assert.AreEqual($"speaker-{i}", line.Speaker);
+                        Assert.AreEqual($"Test line {i}", line.Dialogue);
+                        runner.StepToNextDialogueLine();
+                    }
+                }
+            }
+        }
 
         [Test]
-        public void DialogueReportsMissingTargetLineIfRequired()
+        public void DialogueRunnerReportsMissingTargetLineIfRequired()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("Options/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
+            DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption();
 
-            runner.SetCurrentRecord("options-runner-test");
+            for (int i = 0; i < 2; i++)
+            {
+                // Step through to ignore SimpleDialogueLines
+                bool stepSuccess = runner.StepToNextDialogueLine();
+                Assert.AreEqual(true, stepSuccess);
+            }
 
             bool success = runner.StepToNextDialogueLine();
 
@@ -54,69 +125,32 @@ namespace _Project.Tests.EditMode
         }
 
         [Test]
-        public void DialogueTraversesAllRelatedFiles()
+        public void DialogueRunnerReportsMissingTargetLineNextField()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("MultiFileTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
+            DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption();
 
-            runner.SetCurrentRecord("multi-file-test-id-1");
+            for (int i = 0; i < 2; i++)
+            {
+                // Step through to ignore SimpleDialogueLines
+                bool stepSuccess = runner.StepToNextDialogueLine();
+                Assert.AreEqual(true, stepSuccess);
+            }
 
-            /* Test current record is loaded as expected */
-            DialogueRecord firstRecord = runner.CurrentRecord;
+            DialogueLine line = runner.CurrentDialogueLine;
+            line.Next = null;
 
-            Assert.IsNotNull(firstRecord);
-            Assert.AreEqual("multi-file-test-id-1", firstRecord.id);
+            bool success = runner.StepToNextDialogueLine(line);
 
-            SpokenDialogueLine firstLine = (SpokenDialogueLine) firstRecord.CurrentDialogueLine;
-
-            Assert.AreEqual("test-user", firstLine.Speaker);
-            Assert.AreEqual("This is a test", firstLine.Dialogue);
-            Assert.AreEqual("multi-file-test-id-2", firstLine.Next);
-
-            /* Call to step forwards and check "next" lookup has worked as expected */
-            runner.StepToNextDialogueLine();
-            DialogueRecord secondRecord = runner.CurrentRecord;
-
-            Assert.IsNotNull(secondRecord);
-            Assert.AreEqual("multi-file-test-id-2", secondRecord.id);
-
-            SpokenDialogueLine secondLine = (SpokenDialogueLine) secondRecord.CurrentDialogueLine;
-
-            Assert.AreEqual("test-user-2", secondLine.Speaker);
-            Assert.AreEqual("This is another test", secondLine.Dialogue);
-            Assert.IsNull(secondLine.Next);
+            // TODO: How to handle logging output?
+            Assert.AreEqual(false, success);
         }
 
         [Test]
         public void DialogueThrowsErrorOnInvalidRecordSet()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("LoopingConversationTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
-
+            DialogueRunner runner = new DialogueRunner(new Dictionary<string, DialogueRecord>());
             Assert.Throws<KeyNotFoundException>(() => runner.SetCurrentRecord("file-id-that-does-not-exist"));
         }
 
-        [Test]
-        public void LoopingDialogueResetsInternals()
-        {
-            DialogueAssetLoader loader = new DialogueAssetLoader("LoopingConversationTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records);
-
-            runner.SetCurrentRecord("looping-file-test-id-1");
-            for (int i = 1; i <= 3; i++)
-            {
-                DialogueRecord record = runner.CurrentRecord;
-                Assert.IsFalse(record.IsAtEndOfRecord);
-
-                for (int j = 1; j <= 2; j++)
-                {
-
-                    SpokenDialogueLine line = (SpokenDialogueLine) record.CurrentDialogueLine;
-
-                    Assert.AreEqual($"Test dialogue line {i} - {j}", line.Dialogue);
-                    runner.StepToNextDialogueLine();
-                }
-            }
-        }
     }
 }

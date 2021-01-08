@@ -9,7 +9,6 @@ namespace _Project.Dialogue.Lines
     /// <para>
     /// Each potential Option needs to have a Next that will point to a new DialogueRecord
     /// </para>
-    /// TODO: Allow inline option traversal
     /// </summary>
     public class OptionsDialogueLine : SpokenDialogueLine
     {
@@ -21,6 +20,10 @@ namespace _Project.Dialogue.Lines
         public OptionsDialogueLine(DialogueLineConfig config) : base(config)
         {
             Options = config.options.Select(DialogueLineFactory.FromConfig).Cast<SpokenDialogueLine>().ToList();
+
+            // TODO: Boundary checking on invalid config clashes
+
+            // if (config.Next) {throw new Excpetion}
         }
 
         /// <summary>
@@ -30,6 +33,7 @@ namespace _Project.Dialogue.Lines
         /// <returns></returns>
         public SpokenDialogueLine GetOptionByNext(string next)
         {
+            // TODO: Enforce only one option of each Next exists
             return Options.First(o => o.Next.Equals(next));
         }
     }
