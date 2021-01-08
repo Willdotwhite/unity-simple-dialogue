@@ -19,6 +19,7 @@ namespace _Project.Tests.EditMode
 
             Assert.AreEqual("simple-test-user", line.Speaker);
             Assert.AreEqual("This is a simple test", line.Dialogue);
+            Assert.AreEqual("some-test-file.mp3", line.Meta["audio"]);
         }
 
         [Test]

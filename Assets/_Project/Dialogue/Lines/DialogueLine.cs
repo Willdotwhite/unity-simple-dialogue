@@ -1,4 +1,5 @@
-﻿using _Project.Dialogue.Config;
+﻿using System.Collections.Generic;
+using _Project.Dialogue.Config;
 
 namespace _Project.Dialogue.Lines
 {
@@ -21,9 +22,19 @@ namespace _Project.Dialogue.Lines
         /// </summary>
         public string Next;
 
+        /// <summary>
+        /// Meta is a blank space for any other fields you want to attach to a specific dialogue line
+        /// <para>
+        /// For instance, if you wanted to track an audio file for each SpokenDialogueLine, you would
+        /// put it in Meta as the general catch-all for unsupported fields
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Meta;
+
         protected DialogueLine(DialogueLineConfig config)
         {
             Next = config.next;
+            Meta = config.meta;
         }
     }
 }

@@ -18,5 +18,6 @@ namespace _Project.Dialogue.Config
         public List<DialogueLineConfig> options;
         public List<DialogueLineConfig> branch;
         public SerializableCommandParameters @params;
+        public Dictionary<string, string> meta;
     }
 }

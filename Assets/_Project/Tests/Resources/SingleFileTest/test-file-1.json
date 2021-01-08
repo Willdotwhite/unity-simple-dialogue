@@ -3,7 +3,10 @@
   "dialogueLines": [
     {
       "speaker": "simple-test-user",
-      "dialogue": "This is a simple test"
+      "dialogue": "This is a simple test",
+      "meta": {
+        "audio": "some-test-file.mp3"
+      }
     }
   ]
 }
