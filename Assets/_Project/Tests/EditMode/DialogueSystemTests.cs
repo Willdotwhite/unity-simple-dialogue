@@ -10,15 +10,15 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueSystemCanBeInstantiatedWithMinimalParams()
         {
-            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTest/", "example-conversation-1");
+            DialogueSystem system = new DialogueSystem("DialogueSystemTest/", "example-conversation-1");
 
-            SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
+            SpokenDialogueLine firstLine = system.CurrentDialogueLine;
             Assert.AreEqual("test-user", firstLine.Speaker);
             Assert.AreEqual("This is a test", firstLine.Dialogue);
 
-            _dialogueSystem.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
 
-            SpokenDialogueLine secondLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
+            SpokenDialogueLine secondLine = system.CurrentDialogueLine;
             Assert.AreEqual("test-user", secondLine.Speaker);
             Assert.AreEqual("This is also a test", secondLine.Dialogue);
 
@@ -27,15 +27,15 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueSystemCanBeInstantiatedAndWorkOutStartingRecord()
         {
-            DialogueSystem _dialogueSystem = new DialogueSystem("DialogueSystemTest/");
+            DialogueSystem system = new DialogueSystem("DialogueSystemTest/");
 
-            SpokenDialogueLine firstLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
+            SpokenDialogueLine firstLine = system.CurrentDialogueLine;
             Assert.AreEqual("test-user", firstLine.Speaker);
             Assert.AreEqual("This is a test", firstLine.Dialogue);
 
-            _dialogueSystem.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
 
-            SpokenDialogueLine secondLine = (SpokenDialogueLine) _dialogueSystem.CurrentDialogueLine;
+            SpokenDialogueLine secondLine = system.CurrentDialogueLine;
             Assert.AreEqual("test-user", secondLine.Speaker);
             Assert.AreEqual("This is also a test", secondLine.Dialogue);
         }

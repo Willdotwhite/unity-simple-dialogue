@@ -33,10 +33,9 @@ namespace _Project.Examples
             }
         }
 
-        private void UpdateDialogueLine(DialogueLine line)
+        private void UpdateDialogueLine(SpokenDialogueLine line)
         {
-            SpokenDialogueLine spokenLine = (SpokenDialogueLine) line;
-            _text.text = $"{_text.text}\n{spokenLine.Speaker}: {spokenLine.Dialogue}";
+            _text.text = $"{_text.text}\n{line.Speaker}: {line.Dialogue}";
         }
     }
 }

@@ -71,10 +71,9 @@ namespace _Project.Examples
             UpdateDialogueLine(_dialogueSystem.CurrentDialogueLine);
         }
 
-        private void UpdateDialogueLine(DialogueLine line)
+        private void UpdateDialogueLine(SpokenDialogueLine line)
         {
-            SpokenDialogueLine spokenLine = (SpokenDialogueLine) line;
-            _text.text = $"{_text.text}\n{spokenLine.Speaker}: {spokenLine.Dialogue}";
+            _text.text = $"{_text.text}\n{line.Speaker}: {line.Dialogue}";
 
             if (line is OptionsDialogueLine optionsDialogueLine)
             {

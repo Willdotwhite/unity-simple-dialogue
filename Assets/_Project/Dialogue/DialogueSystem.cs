@@ -22,7 +22,17 @@ namespace _Project.Dialogue
     public class DialogueSystem
     {
         /// <inheritdoc cref="DialogueRunner.CurrentDialogueLine" />
-        public DialogueLine CurrentDialogueLine => _dialogueRunner.CurrentDialogueLine;
+        ///
+        /// <para>
+        /// Because CommandDialogueLines are automatically stepped over, this can never return a CommandDialogueLine.
+        /// Therefore (until another base-level class is introduced) this is the lowest meaningful class cast.
+        /// </para>
+        public SpokenDialogueLine CurrentDialogueLine => (SpokenDialogueLine) _dialogueRunner.CurrentDialogueLine;
+
+        /// <summary>
+        /// <inheritdoc cref="DialogueRunner.IsAtEndOfDialogue"/>
+        /// </summary>
+        public bool IsAtEndOfDialogue => _dialogueRunner.IsAtEndOfDialogue;
 
         /// <inheritdoc cref="DialogueRunner.StepToNextDialogueLine" />
         public bool StepToNextDialogueLine(DialogueLine targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);

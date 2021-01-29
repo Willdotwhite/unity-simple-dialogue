@@ -36,6 +36,7 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueAssetThrowsErrorIfFilesNotFound()
         {
+            // ReSharper disable once ObjectCreationAsStatement
             Assert.Throws<FileLoadException>(() => new DialogueAssetLoader("InvalidOrEmptyFilePath/"));
         }
     }

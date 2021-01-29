@@ -9,67 +9,46 @@ namespace _Project.Tests.EditMode
 {
     public class CommandDialogueLineTests
     {
-        // close
-        // but this is way too nice to let go to waste
-
         [Test]
         public void CommandDialogueLineRuns()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-
             bool actionHasRun = false;
-
-            Action<CommandParameters> testAction = delegate { actionHasRun = true; };
-
-            Dictionary<string, Action<CommandParameters>> commands = new Dictionary<string, Action<CommandParameters>>()
+            Dictionary<string, Action<CommandParameters>> commands = new Dictionary<string, Action<CommandParameters>>
             {
-                {"_test_command", testAction}
+                {"_test_command", delegate { actionHasRun = true; }}
             };
 
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
-
-            runner.SetCurrentRecord("command-line-test-id-1");
-            SpokenDialogueLine preDialogueLine = (SpokenDialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual("This is pre-command firing", preDialogueLine.Dialogue);
+            DialogueSystem system = new DialogueSystem("CommandLineTest", "command-line-test-id-1", null, commands);
+            Assert.AreEqual("This is pre-command firing", system.CurrentDialogueLine.Dialogue);
 
             // Line up command to run
-            runner.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
 
             // Step over auto-running command to next line
-            runner.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
             Assert.IsTrue(actionHasRun);
 
-            runner.StepToNextDialogueLine();
-            SpokenDialogueLine postDialogueLine = (SpokenDialogueLine) runner.CurrentDialogueLine;
-            Assert.AreEqual("This is post-command firing", postDialogueLine.Dialogue);
-            Assert.IsTrue(runner.CurrentRecord.IsAtEndOfRecord);
+            system.StepToNextDialogueLine();
+            Assert.AreEqual("This is post-command firing", system.CurrentDialogueLine.Dialogue);
+            Assert.IsTrue(system.IsAtEndOfDialogue);
         }
 
         [Test]
         public void CommandDialogueLineLoadsParams()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-
             CommandParameters _params = new CommandParameters();
-
-            Action<CommandParameters> testAction = delegate(CommandParameters @params)
-            {
-                _params = @params;
-            };
-
             Dictionary<string, Action<CommandParameters>> commands = new Dictionary<string, Action<CommandParameters>>
             {
-                {"_test_command", testAction}
+                {"_test_command", delegate(CommandParameters @params) {_params = @params;}}
             };
 
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
+            DialogueSystem system = new DialogueSystem("CommandLineTest/", "command-line-test-id-2", null, commands);
 
-            runner.SetCurrentRecord("command-line-test-id-2");
             // Line up command to run
-            runner.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
 
             // Step over auto-running command to next line
-            runner.StepToNextDialogueLine();
+            system.StepToNextDialogueLine();
 
             Assert.AreEqual("value1", _params["key1"]);
             Assert.AreEqual("value2", _params["key2"]);
@@ -78,24 +57,14 @@ namespace _Project.Tests.EditMode
         [Test]
         public void CommandDialogueLineLoadsParamsOfCorrectType()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-
             CommandParameters _params = new CommandParameters();
-
-            Action<CommandParameters> testAction = delegate(CommandParameters @params)
-            {
-                _params = @params;
-            };
-
             Dictionary<string, Action<CommandParameters>> commands = new Dictionary<string, Action<CommandParameters>>
             {
-                {"_test_command", testAction}
+                {"_test_command", delegate(CommandParameters @params) {_params = @params;}}
             };
 
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
-
-            runner.SetCurrentRecord("command-line-test-id-4");
-            runner.StepToNextDialogueLine();
+            DialogueSystem system = new DialogueSystem("CommandLineTest", "command-line-test-id-4", null, commands);
+            system.StepToNextDialogueLine();
 
             Assert.IsInstanceOf<string>(_params["key1"]);
             Assert.IsInstanceOf<int>(_params["key2"]);
@@ -107,8 +76,6 @@ namespace _Project.Tests.EditMode
         [Test]
         public void CommandDialogueLineFunctionsAsLastLineOfRecord()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-
             CommandParameters _params = new CommandParameters();
 
             Action<CommandParameters> testAction = delegate(CommandParameters @params)
@@ -126,10 +93,8 @@ namespace _Project.Tests.EditMode
                 {"_test_command_2", testAction}
             };
 
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, commands);
-
-            runner.SetCurrentRecord("command-line-test-id-3");
-            runner.StepToNextDialogueLine();
+            DialogueSystem system = new DialogueSystem("CommandLineTest/", "command-line-test-id-3", null, commands);
+            system.StepToNextDialogueLine();
 
             // _test_command_1
             Assert.AreEqual("value1", _params["key1"]);
@@ -143,20 +108,14 @@ namespace _Project.Tests.EditMode
         [Test]
         public void DialogueRunnerThrowsExceptionWhenRecordHasNoCommandsSet()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, null);
-
-            runner.SetCurrentRecord("command-line-test-id-3");
-            Assert.Throws<ArgumentOutOfRangeException>(() => runner.StepToNextDialogueLine());
+            DialogueSystem system = new DialogueSystem("CommandLineTest/", "command-line-test-id-3");
+            Assert.Throws<ArgumentOutOfRangeException>(() => system.StepToNextDialogueLine());
         }
 
         [Test]
         public void DialogueRunnerThrowsExceptionWhenRecordDoesNotHaveIntendedCommandSet()
         {
-            DialogueAssetLoader loader = new DialogueAssetLoader("CommandLineTest/");
-            DialogueRunner runner = new DialogueRunner(loader.Records, null, new Dictionary<string, Action<CommandParameters>>());
-
-            runner.SetCurrentRecord("command-line-test-id-3");
+            DialogueSystem runner = new DialogueSystem("CommandLineTest/", "command-line-test-id-3", null, new Dictionary<string, Action<CommandParameters>>());
             Assert.Throws<ArgumentOutOfRangeException>(() => runner.StepToNextDialogueLine());
         }
     }

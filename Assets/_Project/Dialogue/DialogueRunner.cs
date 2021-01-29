@@ -26,9 +26,14 @@ namespace _Project.Dialogue
         public DialogueRecord CurrentRecord { get; private set; }
 
         /// <summary>
-        /// CurrentDialogueLine from the _currentRecord
+        /// CurrentDialogueLine from the current DialogueRecord being read
         /// </summary>
         public DialogueLine CurrentDialogueLine => CurrentRecord.CurrentDialogueLine;
+
+        /// <summary>
+        /// Are we at the end of the dialogue we can run through?
+        /// </summary>
+        public bool IsAtEndOfDialogue => CurrentRecord.IsAtEndOfRecord && _hasNextLine == false;
 
         /// <summary>
         /// Does the Runner have a valid DialogueLine it can reach?
