@@ -9,23 +9,6 @@ namespace _Project.Tests.EditMode
     public class OptionsDialogueLineTests
     {
         [Test]
-        public void OptionsDialogueLineCanLookUpOptionByUniqueId()
-        {
-            DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption(null, 0);
-            OptionsDialogueLine line = (OptionsDialogueLine) runner.CurrentDialogueLine;
-
-            SpokenDialogueLine option1 = line.GetOptionByNext("next-option-branch-1");
-            Assert.AreEqual("speaker-1", option1.Speaker);
-            Assert.AreEqual("Test line - option - branch 1", option1.Dialogue);
-            Assert.AreEqual("next-option-branch-1", option1.Next);
-
-            SpokenDialogueLine option2 = line.GetOptionByNext("next-option-branch-2");
-            Assert.AreEqual("speaker-2", option2.Speaker);
-            Assert.AreEqual("Test line - option - branch 2", option2.Dialogue);
-            Assert.AreEqual("next-option-branch-2", option2.Next);
-        }
-
-        [Test]
         public void OptionsDialogueLineCanBuildInlineBranches()
         {
             DialogueAssetLoader loader = new DialogueAssetLoader("OptionsDialogueLineTest/");
