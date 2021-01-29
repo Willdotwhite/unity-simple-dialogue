@@ -11,8 +11,8 @@ namespace _Project.Tests.EditMode.Mocks
         public static SpokenDialogueLine Spoken(
             string speaker,
             string dialogue,
-            [CanBeNull] string next = null,
-            [CanBeNull] Dictionary<string, string> meta = null
+            string next = null,
+            Dictionary<string, string> meta = null
         )
         {
             return new SpokenDialogueLine(BuildDialogueLineConfig(
@@ -37,14 +37,14 @@ namespace _Project.Tests.EditMode.Mocks
         }
 
         public static DialogueLineConfig BuildDialogueLineConfig(
-            [CanBeNull] string speaker = null,
-            [CanBeNull] string dialogue = null,
-            [CanBeNull] string next = null,
-            [CanBeNull] string command = null,
-            [CanBeNull] List<DialogueLineConfig> options = null,
-            [CanBeNull] List<DialogueLineConfig> branch = null,
-            [CanBeNull] SerializableCommandParameters @params = null,
-            [CanBeNull] Dictionary<string, string> meta = null
+            string speaker = null,
+            string dialogue = null,
+            string next = null,
+            string command = null,
+            List<DialogueLineConfig> options = null,
+            List<DialogueLineConfig> branch = null,
+            SerializableCommandParameters @params = null,
+            Dictionary<string, string> meta = null
         )
         {
             return new DialogueLineConfig

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
-using JetBrains.Annotations;
 
 namespace _Project.Dialogue
 {
@@ -26,7 +25,7 @@ namespace _Project.Dialogue
         public DialogueLine CurrentDialogueLine => _dialogueRunner.CurrentDialogueLine;
 
         /// <inheritdoc cref="DialogueRunner.StepToNextDialogueLine" />
-        public bool StepToNextDialogueLine([CanBeNull] DialogueLine targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);
+        public bool StepToNextDialogueLine(DialogueLine targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);
 
         /// <summary>
         /// Internal handler for moving through DialogueRecords
@@ -35,9 +34,9 @@ namespace _Project.Dialogue
 
         public DialogueSystem(
             string filepath,
-            [CanBeNull] string startingRecordId = null,
-            [CanBeNull] DialogueParser parser = null,
-            [CanBeNull] Dictionary<string, Action<CommandParameters>> commands = null
+            string startingRecordId = null,
+            DialogueParser parser = null,
+            Dictionary<string, Action<CommandParameters>> commands = null
         )
         {
             DialogueAssetLoader assetLoader = new DialogueAssetLoader(filepath);

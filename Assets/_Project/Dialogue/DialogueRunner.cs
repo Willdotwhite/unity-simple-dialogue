@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Project.Dialogue
@@ -43,8 +42,8 @@ namespace _Project.Dialogue
 
         public DialogueRunner(
             Dictionary<string, DialogueRecord> records,
-            [CanBeNull] DialogueParser parser = null,
-            [CanBeNull] Dictionary<string, Action<CommandParameters>> commands = null
+            DialogueParser parser = null,
+            Dictionary<string, Action<CommandParameters>> commands = null
         )
         {
             Records = DialogueRecordBuilder.Build(records);
@@ -85,7 +84,7 @@ namespace _Project.Dialogue
         /// </summary>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         // TODO: Should there be a riskier "canJumpDirectToTargetDialogueLine" for more complex traversal?
-        public bool StepToNextDialogueLine([CanBeNull] DialogueLine targetDialogueLine = null)
+        public bool StepToNextDialogueLine(DialogueLine targetDialogueLine = null)
         {
             // If there is no Next line to move to (either in CurrentRecord or from CurrentDialogueLine.Next,
             // don't even bother trying trying to move forward into nothingness
@@ -119,7 +118,7 @@ namespace _Project.Dialogue
         /// </para>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         /// </summary>
-        private bool Step([CanBeNull] DialogueLine targetDialogueLine = null)
+        private bool Step(DialogueLine targetDialogueLine = null)
         {
             // If you're stepping through a record, just keep going
             if (!CurrentRecord.IsAtEndOfRecord)

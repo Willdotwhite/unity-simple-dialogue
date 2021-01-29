@@ -10,7 +10,7 @@ namespace _Project.Tests.EditMode.Mocks
     {
         private const int defaultLineCount = 3;
 
-        public static DialogueRunner GetSimple([CanBeNull] string id = null)
+        public static DialogueRunner GetSimple(string id = null)
         {
             if (id == null)
             {
@@ -25,7 +25,7 @@ namespace _Project.Tests.EditMode.Mocks
             return runner;
         }
 
-        public static DialogueRunner GetMultiRecordByNext([CanBeNull] List<string> ids = null)
+        public static DialogueRunner GetMultiRecordByNext(List<string> ids = null)
         {
             Dictionary<string, DialogueRecord> records = GetSimpleDialogueRecordsForIds(ids);
 
@@ -41,7 +41,7 @@ namespace _Project.Tests.EditMode.Mocks
             return runner;
         }
 
-        public static DialogueRunner GetSimpleOption([CanBeNull] string id = null, int preOptionLineCount = defaultLineCount - 1)
+        public static DialogueRunner GetSimpleOption(string id = null, int preOptionLineCount = defaultLineCount - 1)
         {
             if (id == null)
             {
