@@ -45,7 +45,7 @@ namespace _Project.Tests.EditMode
 
             SpokenDialogueLine option1 = optionsDialogueLine.Options[0];
 
-            system.StepToNextDialogueLine(option1);
+            system.StepToNextDialogueLine(option1.Next);
             SpokenDialogueLine line1 = system.CurrentDialogueLine;
             Assert.AreEqual("options-test-user", line1.Speaker);
             Assert.AreEqual("Branch 1 line 1", line1.Dialogue);
@@ -91,7 +91,7 @@ namespace _Project.Tests.EditMode
 
             SpokenDialogueLine option1 = optionsDialogueLine.Options[0];
 
-            system.StepToNextDialogueLine(option1);
+            system.StepToNextDialogueLine(option1.Next);
             Assert.AreEqual("options-test-user", system.CurrentDialogueLine.Speaker);
             Assert.AreEqual("Branch 1 line 1", system.CurrentDialogueLine.Dialogue);
 
@@ -108,7 +108,7 @@ namespace _Project.Tests.EditMode
             OptionsDialogueLine nestedOptionsDialogueLine = (OptionsDialogueLine) system.CurrentDialogueLine;
             SpokenDialogueLine option11 = nestedOptionsDialogueLine.Options[0];
 
-            system.StepToNextDialogueLine(option11);
+            system.StepToNextDialogueLine(option11.Next);
             Assert.AreEqual("options-test-user", system.CurrentDialogueLine.Speaker);
             Assert.AreEqual("Branch 1.1 line 1", system.CurrentDialogueLine.Dialogue);
 

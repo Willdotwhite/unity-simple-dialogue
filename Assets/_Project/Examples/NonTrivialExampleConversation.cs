@@ -61,13 +61,13 @@ namespace _Project.Examples
         public void OnColourChosen(string colour)
         {
             // Each button passes a string of either 'red' 'green' or 'blue'
+            // In this example the string is constructed very explicitly, but you could instead use the .Next
+            // attribute to pre-fil the Button onClick parameter here and not bother with this step
             string nextDialogueBranch = $"non-trivial-conversation::colour-option::{colour}";
 
             // Move to the chosen Option DialogueLine
-            OptionsDialogueLine currentOptionDialogueLine = (OptionsDialogueLine) _dialogueSystem.CurrentDialogueLine;
-            DialogueLine chosenOption = currentOptionDialogueLine.GetOptionByNext(nextDialogueBranch);
+            _dialogueSystem.StepToNextDialogueLine(nextDialogueBranch);
 
-            _dialogueSystem.StepToNextDialogueLine(chosenOption);
             UpdateDialogueLine(_dialogueSystem.CurrentDialogueLine);
         }
 

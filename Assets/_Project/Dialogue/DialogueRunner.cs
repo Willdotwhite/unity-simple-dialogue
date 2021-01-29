@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Dialogue.Config;
 using _Project.Dialogue.Lines;
 using UnityEngine;
@@ -87,9 +88,9 @@ namespace _Project.Dialogue
         /// <summary>
         /// Step to the next line of dialogue and return whether this was successful
         /// </summary>
+        /// <param name="targetDialogueLine">ID of the DialogueRecord to jump to - normally used when progressing from a OptionsDialogueLine</param>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
-        // TODO: Should there be a riskier "canJumpDirectToTargetDialogueLine" for more complex traversal?
-        public bool StepToNextDialogueLine(DialogueLine targetDialogueLine = null)
+        public bool StepToNextDialogueLine(string targetDialogueLine = null)
         {
             // If there is no Next line to move to (either in CurrentRecord or from CurrentDialogueLine.Next,
             // don't even bother trying trying to move forward into nothingness
@@ -123,7 +124,8 @@ namespace _Project.Dialogue
         /// </para>
         /// <returns>Stepped to new DialogueLine, or is stuck at EOF</returns>
         /// </summary>
-        private bool Step(DialogueLine targetDialogueLine = null)
+        /// TODO: This can be used to jump directly if I remove the Options block
+        private bool Step(string targetDialogueLine = null)
         {
             // If you're stepping through a record, just keep going
             if (!CurrentRecord.IsAtEndOfRecord)
@@ -146,14 +148,14 @@ namespace _Project.Dialogue
                     return false;
                 }
 
-                if (targetDialogueLine.Next == null)
+                if (!Records.Keys.ToList().Contains(targetDialogueLine))
                 {
-                    Debug.LogWarning("DialogueRunner cannot step to an OptionsDialogueLine option unless it has a Next field!");
+                    Debug.LogWarning($"DialogueRunner doesn't have a DialogueRecord of ID {targetDialogueLine}, and cannot continue");
                     return false;
                 }
 
                 // a Next line (i.e. a new DialogueRecord to jump to)
-                nextRecordId = targetDialogueLine.Next;
+                nextRecordId = targetDialogueLine;
             }
 
             // If we don't know where to go next, we've hit the end of our current dialogue

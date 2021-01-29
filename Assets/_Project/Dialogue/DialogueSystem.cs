@@ -35,7 +35,7 @@ namespace _Project.Dialogue
         public bool IsAtEndOfDialogue => _dialogueRunner.IsAtEndOfDialogue;
 
         /// <inheritdoc cref="DialogueRunner.StepToNextDialogueLine" />
-        public bool StepToNextDialogueLine(DialogueLine targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);
+        public bool StepToNextDialogueLine(string targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);
 
         /// <summary>
         /// Internal handler for moving through DialogueRecords

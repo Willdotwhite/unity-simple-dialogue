@@ -94,7 +94,7 @@ namespace _Project.Tests.EditMode
                         Assert.AreEqual($"Test line - option", line.Dialogue);
 
                         OptionsDialogueLine option = (OptionsDialogueLine) record.CurrentDialogueLine;
-                        runner.StepToNextDialogueLine(option.Options[0]);
+                        runner.StepToNextDialogueLine(option.Options[0].Next);
                     }
                     else
                     {
@@ -125,7 +125,7 @@ namespace _Project.Tests.EditMode
         }
 
         [Test]
-        public void DialogueRunnerReportsMissingTargetLineNextField()
+        public void DialogueRunnerReportsMissingTargetLineNextFieldForNull()
         {
             DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption();
 
@@ -136,10 +136,25 @@ namespace _Project.Tests.EditMode
                 Assert.AreEqual(true, stepSuccess);
             }
 
-            DialogueLine line = runner.CurrentDialogueLine;
-            line.Next = null;
+            bool success = runner.StepToNextDialogueLine(null);
 
-            bool success = runner.StepToNextDialogueLine(line);
+            // TODO: How to handle logging output?
+            Assert.AreEqual(false, success);
+        }
+
+        [Test]
+        public void DialogueRunnerReportsMissingTargetLineNextFieldForInvalidString()
+        {
+            DialogueRunner runner = DialogueRunnerMocks.GetSimpleOption();
+
+            for (int i = 0; i < 2; i++)
+            {
+                // Step through to ignore SimpleDialogueLines
+                bool stepSuccess = runner.StepToNextDialogueLine();
+                Assert.AreEqual(true, stepSuccess);
+            }
+
+            bool success = runner.StepToNextDialogueLine("this-id-doesn't-exist");
 
             // TODO: How to handle logging output?
             Assert.AreEqual(false, success);
