@@ -1,0 +1,18 @@
+﻿{
+  "id": "orphaned-line-test",
+  "dialogueLines": [
+    {
+      "speaker": "",
+      "dialogue": "Test line 1"
+    },
+    {
+      "speaker": "",
+      "dialogue": "Test line 1",
+      "next": "another-file"
+    },
+    {
+      "speaker": "orphan",
+      "dialogue": "Test line 3"
+    }
+  ]
+}

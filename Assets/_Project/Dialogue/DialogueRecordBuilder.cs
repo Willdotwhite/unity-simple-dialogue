@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Project.Dialogue.Analysis;
 using _Project.Dialogue.Lines;
 
 namespace _Project.Dialogue
@@ -23,6 +24,9 @@ namespace _Project.Dialogue
         {
             DialogueRecordBuilder builder = new DialogueRecordBuilder();
             builder.SetAndGenerateRecords(records);
+
+            // Validate records are valid before continuing?
+            OnLoadAnalyser.CheckRecords(builder.Records);
 
             return builder.Records;
         }
