@@ -209,6 +209,5 @@ namespace DotwoGames.Dialogue
                 }
             }
         }
-
     }
 }

@@ -37,10 +37,17 @@ namespace DotwoGames.Dialogue
         /// <inheritdoc cref="DialogueRunner.StepToNextDialogueLine" />
         public bool StepToNextDialogueLine(string targetDialogueLine = null) => _dialogueRunner.StepToNextDialogueLine(targetDialogueLine);
 
+        public void Reset() => _dialogueRunner.SetCurrentRecord(resolvedStartingRecordId);
+
         /// <summary>
         /// Internal handler for moving through DialogueRecords
         /// </summary>
         private readonly DialogueRunner _dialogueRunner;
+
+        /// <summary>
+        /// Record ID that determined as the starting ID
+        /// </summary>
+        private readonly string resolvedStartingRecordId;
 
         public DialogueSystem(
             string filepath,
@@ -52,22 +59,23 @@ namespace DotwoGames.Dialogue
             DialogueAssetLoader assetLoader = new DialogueAssetLoader(filepath);
             _dialogueRunner = new DialogueRunner(assetLoader.Records, parser, commands);
 
-            SetStartingRecord(startingRecordId, assetLoader);
+            resolvedStartingRecordId = GetStartingRecordId(startingRecordId, assetLoader);
+            _dialogueRunner.SetCurrentRecord(resolvedStartingRecordId);
         }
 
         /// <summary>
-        /// Try to set the initial DialogueRecord for the starting state of the system
+        /// Get the ID of the starting record
         /// </summary>
         /// <param name="startingRecordId"></param>
         /// <param name="assetLoader"></param>
+        /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        private void SetStartingRecord(string startingRecordId, DialogueAssetLoader assetLoader)
+        private string GetStartingRecordId(string startingRecordId, DialogueAssetLoader assetLoader)
         {
             // Set record if explicitly stated
             if (startingRecordId != null)
             {
-                _dialogueRunner.SetCurrentRecord(startingRecordId);
-                return;
+                return startingRecordId;
             }
 
             // If we're being left to work out what record is desired, and there's only one option, set that
@@ -77,7 +85,7 @@ namespace DotwoGames.Dialogue
             }
 
             DialogueRecord onlyRecord = assetLoader.Records.First().Value;
-            _dialogueRunner.SetCurrentRecord(onlyRecord.id);
+            return onlyRecord.id;
         }
     }
 }
