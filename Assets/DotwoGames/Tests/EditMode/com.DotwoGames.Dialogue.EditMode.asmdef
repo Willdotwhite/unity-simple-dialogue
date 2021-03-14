@@ -1,5 +1,5 @@
 {
-    "name": "EditMode",
+    "name": "DotwoGames.Dialogue.EditMode",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
