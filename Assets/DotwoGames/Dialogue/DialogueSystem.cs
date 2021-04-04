@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DotwoGames.Dialogue.Config;
 using DotwoGames.Dialogue.Lines;
+using UnityEngine;
 
 namespace DotwoGames.Dialogue
 {
@@ -60,6 +61,17 @@ namespace DotwoGames.Dialogue
             _dialogueRunner = new DialogueRunner(assetLoader.Records, parser, commands);
 
             resolvedStartingRecordId = GetStartingRecordId(startingRecordId, assetLoader);
+            _dialogueRunner.SetCurrentRecord(resolvedStartingRecordId);
+        }
+
+        // TODO: Consider expanding this, if I want further Editor functionality
+        // TODO: Expand to load all files in directory?
+        public DialogueSystem(TextAsset textAsset)
+        {
+            DialogueAssetLoader assetLoader = new DialogueAssetLoader(textAsset);
+            _dialogueRunner = new DialogueRunner(assetLoader.Records);
+
+            resolvedStartingRecordId = GetStartingRecordId(null, assetLoader);
             _dialogueRunner.SetCurrentRecord(resolvedStartingRecordId);
         }
 

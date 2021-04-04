@@ -1,6 +1,6 @@
 {
     "name": "com.dotwogames.dialogue-system",
-    "displayName": "Simple JSON Dialogue System",
+    "displayName": "SO3 Dialogue System",
     "version": "1.0.0",
     "unity": "2020.1",
     "description": "A dialogue system manager for structured JSON, without any visual editors!",
